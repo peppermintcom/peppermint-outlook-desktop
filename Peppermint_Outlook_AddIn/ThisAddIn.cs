@@ -19,7 +19,12 @@ namespace Peppermint_Outlook_AddIn
         public static Outlook.MailItem theCurrentMailItem;
         public static Outlook.Application outlookApp;
         public static string AttachmentFilePath;
-        public static string PEPPERMINT_REPLY_HTML_BODY = "Here's my message<BR> Reply via <a href=Peppermint.com>Peppermint.com</a><BR><BR>";
+        public static string PEPPERMINT_NEW_EMAIL_HTML_BODY = "Here's my message<BR> Reply via <a href=Peppermint.com>Peppermint.com</a><BR><BR>";
+        public static string PEPPERMINT_REPLY_MAIL_HTML_BODY = "I sent you an audio reply with <a href=Peppermint.com>Peppermint.com</a><BR><BR>";
+
+        public static string PEPPERMINT_NEW_MAIL_SUBJECT = "I sent you a voicemail message";
+        
+
         public static bool bPeppermintMessageInserted;
 
         #endregion
@@ -69,23 +74,30 @@ namespace Peppermint_Outlook_AddIn
                     if (ThisAddIn.theCurrentMailItem.Subject == null)
                     {
                         //if (RibbonName != "Read")
-                        ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
+                        ThisAddIn.theCurrentMailItem.Subject = PEPPERMINT_NEW_MAIL_SUBJECT;
                     }
                     else
                     {
                         if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Subject.ToString())) && (RibbonName == "Create"))
                         {
-                            ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
+                            ThisAddIn.theCurrentMailItem.Subject = PEPPERMINT_NEW_MAIL_SUBJECT;
                         }
                     }
 
                     if (ThisAddIn.theCurrentMailItem.Body != null)
+                    {
+                        ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
                         if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Create"))
                         {
-                            ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
-                            ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                            ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
                             bPeppermintMessageInserted = true;
                         }
+                        if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Read"))
+                        {
+                            ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                            bPeppermintMessageInserted = true;
+                        }
+                    }
                 }
                 // Attach audio recording file
                 if ((ThisAddIn.theCurrentMailItem != null) && (File.Exists(ThisAddIn.AttachmentFilePath)))

@@ -28,7 +28,7 @@ namespace Peppermint_Outlook_AddIn
                 ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
                 
                 ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
-                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_REPLY_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
                 ThisAddIn.bPeppermintMessageInserted = true;
 
                 // Attach audio recording file
