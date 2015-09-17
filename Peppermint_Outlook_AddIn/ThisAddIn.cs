@@ -75,8 +75,7 @@ namespace Peppermint_Outlook_AddIn
                     {
                         if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Subject.ToString())) && (RibbonName == "Create"))
                         {
-                            if (MessageBox.Show("The subject will be updated.\n Do you want to update the subject ?", "Subject will be changed", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
+                            ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
                         }
                     }
 
