@@ -67,8 +67,6 @@ namespace Peppermint_Outlook_AddIn
                 if (ThisAddIn.theCurrentMailItem == null)
                     return dr;
 
-
-
                 if (!bPeppermintMessageInserted)
                 {
                     if (ThisAddIn.theCurrentMailItem.Subject == null)
@@ -78,7 +76,7 @@ namespace Peppermint_Outlook_AddIn
                     }
                     else
                     {
-                        if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Subject.ToString())) && (RibbonName == "Create"))
+                        if ((String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Subject.ToString())) && (RibbonName == "Create"))
                         {
                             ThisAddIn.theCurrentMailItem.Subject = PEPPERMINT_NEW_MAIL_SUBJECT;
                         }

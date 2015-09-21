@@ -73,7 +73,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.GIF_01;
             this.pictureBox1.Location = new System.Drawing.Point(107, 31);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 66);
