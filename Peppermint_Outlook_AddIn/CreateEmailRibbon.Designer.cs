@@ -53,7 +53,7 @@
             this.group1.Items.Add(this.btnRecordMessage);
             this.group1.Label = "Peppermint";
             this.group1.Name = "group1";
-            this.group1.Position = this.Factory.RibbonPosition.BeforeOfficeId("GroupMessageOptions");
+            this.group1.Position = this.Factory.RibbonPosition.AfterOfficeId("GroupClipboard");
             // 
             // btnRecordMessage
             // 
