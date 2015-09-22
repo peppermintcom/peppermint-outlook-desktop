@@ -51,6 +51,7 @@
             // group1
             // 
             this.group1.Items.Add(this.btnRecordMessage);
+            this.group1.Label = "Peppermint";
             this.group1.Name = "group1";
             this.group1.Position = this.Factory.RibbonPosition.BeforeOfficeId("GroupMessageOptions");
             // 
@@ -58,7 +59,7 @@
             // 
             this.btnRecordMessage.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.btnRecordMessage.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Logo;
-            this.btnRecordMessage.Label = "Send via Peppermint";
+            this.btnRecordMessage.Label = "Add Audio Message";
             this.btnRecordMessage.Name = "btnRecordMessage";
             this.btnRecordMessage.ShowImage = true;
             this.btnRecordMessage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnRecordMessage_Click);

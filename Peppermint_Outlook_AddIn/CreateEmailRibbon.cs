@@ -17,6 +17,7 @@ namespace Peppermint_Outlook_AddIn
 
         private void btnRecordMessage_Click(object sender, RibbonControlEventArgs e)
         {
+            ThisAddIn.theCurrentMailItem.Save();
             ThisAddIn.RecordAudioAndAttach("Create");
         }
     }
