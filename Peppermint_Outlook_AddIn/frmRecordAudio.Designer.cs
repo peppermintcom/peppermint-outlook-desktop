@@ -39,7 +39,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(15, 176);
+            this.btnCancel.Location = new System.Drawing.Point(15, 138);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(135, 32);
             this.btnCancel.TabIndex = 0;
@@ -53,7 +53,7 @@
             this.btnAttachAudio.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAttachAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttachAudio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAttachAudio.Location = new System.Drawing.Point(164, 176);
+            this.btnAttachAudio.Location = new System.Drawing.Point(164, 138);
             this.btnAttachAudio.Name = "btnAttachAudio";
             this.btnAttachAudio.Size = new System.Drawing.Size(135, 32);
             this.btnAttachAudio.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 112);
+            this.label1.Location = new System.Drawing.Point(69, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(198, 16);
             this.label1.TabIndex = 2;
@@ -74,7 +74,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.GIF_01;
-            this.pictureBox1.Location = new System.Drawing.Point(107, 31);
+            this.pictureBox1.Location = new System.Drawing.Point(107, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -87,7 +87,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(325, 220);
+            this.ClientSize = new System.Drawing.Size(319, 190);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttachAudio);
