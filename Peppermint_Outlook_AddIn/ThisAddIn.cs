@@ -21,6 +21,7 @@ namespace Peppermint_Outlook_AddIn
         public static string AttachmentFilePath;
         public static string PEPPERMINT_NEW_EMAIL_HTML_BODY = "Here's my message<BR> Reply via <a href=Peppermint.com>Peppermint.com</a><BR><BR>";
         public static string PEPPERMINT_REPLY_MAIL_HTML_BODY = "I sent you an audio reply with <a href=Peppermint.com>Peppermint.com</a><BR><BR>";
+        public static string PEPPERMINT_WEBSITE = "Peppermint.com";
 
         public static string PEPPERMINT_NEW_MAIL_SUBJECT = "I sent you a voicemail message";
         
@@ -84,16 +85,20 @@ namespace Peppermint_Outlook_AddIn
 
                     if (ThisAddIn.theCurrentMailItem.Body != null)
                     {
-                        ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
-                        if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Create"))
-                        {
-                            ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
-                            bPeppermintMessageInserted = true;
-                        }
-                        if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Read"))
-                        {
-                            ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
-                            bPeppermintMessageInserted = true;
+                        // if the text "Peppermint.com" is in the body of the message don't update the body
+                        if (!ThisAddIn.theCurrentMailItem.HTMLBody.ToString().Contains(PEPPERMINT_WEBSITE))
+                        { 
+                            ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
+                            if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Create"))
+                            {
+                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                                bPeppermintMessageInserted = true;
+                            }
+                            if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Read"))
+                            {
+                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                                bPeppermintMessageInserted = true;
+                            }
                         }
                     }
                 }
