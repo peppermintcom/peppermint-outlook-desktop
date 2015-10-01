@@ -64,7 +64,9 @@ namespace Peppermint_Outlook_AddIn
                 FinalizeWaveFile();
                 if (e.Exception != null)
                 {
-                    MessageBox.Show(String.Format("A problem was encountered during recording {0}", e.Exception.Message));
+                    MessageBox.Show("There is a problem with your microphone. Please check it and try again", "A problem was encountered during recording", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    ThisAddIn.AttachmentFilePath = String.Empty;
+                    this.Dispose();
                 }
             }
         }
@@ -96,6 +98,8 @@ namespace Peppermint_Outlook_AddIn
             {
                 waveIn.StopRecording();
                 ThisAddIn.AttachmentFilePath = outputFolder + "\\" + outputFilename;
+
+                FinalizeWaveFile();
             }
         }
 
