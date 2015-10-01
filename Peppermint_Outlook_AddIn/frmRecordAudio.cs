@@ -39,7 +39,7 @@ namespace Peppermint_Outlook_AddIn
                 waveIn.RecordingStopped += waveIn_RecordingStopped;
             }
 
-            outputFilename = String.Format("Peppermint_Message {0:yyyy-MMM-dd HH-mm-ss}.wav", DateTime.Now);
+            outputFilename = String.Format("Peppermint_Message {0:yyyy-MMM-dd h-mm-ss tt}.wav", DateTime.Now);
             writer = new WaveFileWriter(Path.Combine(outputFolder, outputFilename), waveIn.WaveFormat);
             try 
             { 
