@@ -55,6 +55,8 @@ namespace Peppermint_Outlook_AddIn
                 txtMessage.Text = MIC_ERRROR;
                 pictureBox1.Image = Properties.Resources.icon_mic_off;
                 waveIn = null;
+                btnCancel.Enabled = false;
+                btnAttachAudio.Enabled = false;
             }
         }
 
@@ -72,6 +74,9 @@ namespace Peppermint_Outlook_AddIn
                     ThisAddIn.AttachmentFilePath = String.Empty;
                     txtMessage.Text = MIC_ERRROR;
                     pictureBox1.Image = Properties.Resources.icon_mic_off;
+                    waveIn = null;
+                    btnCancel.Enabled = false;
+                    btnAttachAudio.Enabled = false;
                 }
             }
         }

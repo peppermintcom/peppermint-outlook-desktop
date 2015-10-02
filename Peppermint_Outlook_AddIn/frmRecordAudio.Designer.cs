@@ -31,7 +31,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAttachAudio = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.txtMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,14 +75,11 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMessage.Location = new System.Drawing.Point(31, 92);
-            this.txtMessage.Multiline = true;
+            this.txtMessage.Location = new System.Drawing.Point(24, 94);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(267, 48);
+            this.txtMessage.Size = new System.Drawing.Size(273, 43);
             this.txtMessage.TabIndex = 5;
-            this.txtMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmRecordAudio
             // 
@@ -106,7 +103,6 @@
             this.Load += new System.EventHandler(this.frmRecordAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -115,6 +111,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAttachAudio;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtMessage;
+        private System.Windows.Forms.Label txtMessage;
     }
 }
