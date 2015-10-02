@@ -19,6 +19,8 @@ namespace Peppermint_Outlook_AddIn
         private WaveFileWriter writer;
         private string outputFilename;
         private readonly string outputFolder;
+        private string RECORDING = "Recording your message ...";
+        private string MIC_ERRROR = "Your microphone is not working. Please check your audio settings and try again.";
 
         public frmRecordAudio()
         {
@@ -44,12 +46,15 @@ namespace Peppermint_Outlook_AddIn
             try 
             { 
                 waveIn.StartRecording();
+                txtMessage.Text = RECORDING;
+                pictureBox1.Image = Properties.Resources.GIF_01;
             }
             catch (Exception ex)
             {
-                string msg = String.Format("Your microphone is disabled, please check your settings.");
-                MessageBox.Show(msg,"Error while recording audio", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                this.Dispose();
+                ThisAddIn.AttachmentFilePath = String.Empty;
+                txtMessage.Text = MIC_ERRROR;
+                pictureBox1.Image = Properties.Resources.icon_mic_off;
+                waveIn = null;
             }
         }
 
@@ -64,9 +69,9 @@ namespace Peppermint_Outlook_AddIn
                 FinalizeWaveFile();
                 if (e.Exception != null)
                 {
-                    MessageBox.Show("There is a problem with your microphone. Please check it and try again", "A problem was encountered during recording", MessageBoxButtons.OK,MessageBoxIcon.Error);
                     ThisAddIn.AttachmentFilePath = String.Empty;
-                    this.Dispose();
+                    txtMessage.Text = MIC_ERRROR;
+                    pictureBox1.Image = Properties.Resources.icon_mic_off;
                 }
             }
         }

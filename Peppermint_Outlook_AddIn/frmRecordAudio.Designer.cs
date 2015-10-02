@@ -30,21 +30,23 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAttachAudio = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(15, 138);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(10, 151);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(135, 32);
+            this.btnCancel.Size = new System.Drawing.Size(147, 32);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAttachAudio
@@ -52,44 +54,46 @@
             this.btnAttachAudio.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnAttachAudio.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAttachAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttachAudio.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAttachAudio.Location = new System.Drawing.Point(164, 138);
+            this.btnAttachAudio.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAttachAudio.Location = new System.Drawing.Point(164, 151);
             this.btnAttachAudio.Name = "btnAttachAudio";
-            this.btnAttachAudio.Size = new System.Drawing.Size(135, 32);
+            this.btnAttachAudio.Size = new System.Drawing.Size(147, 32);
             this.btnAttachAudio.TabIndex = 1;
             this.btnAttachAudio.Text = "Done";
             this.btnAttachAudio.UseVisualStyleBackColor = false;
             this.btnAttachAudio.Click += new System.EventHandler(this.btnAttachAudio_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 96);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Recording your message ...";
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.GIF_01;
-            this.pictureBox1.Location = new System.Drawing.Point(107, 15);
+            this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.icon_mic_on;
+            this.pictureBox1.Location = new System.Drawing.Point(112, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // txtMessage
+            // 
+            this.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMessage.Location = new System.Drawing.Point(31, 92);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(267, 48);
+            this.txtMessage.TabIndex = 5;
+            this.txtMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmRecordAudio
             // 
             this.AcceptButton = this.btnAttachAudio;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(319, 190);
+            this.ClientSize = new System.Drawing.Size(322, 190);
+            this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAttachAudio);
             this.Controls.Add(this.btnCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -110,7 +114,7 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAttachAudio;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtMessage;
     }
 }
