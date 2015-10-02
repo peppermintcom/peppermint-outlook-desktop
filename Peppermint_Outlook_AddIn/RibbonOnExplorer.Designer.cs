@@ -59,7 +59,7 @@
             // 
             this.btnSendViaPeppermint.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.btnSendViaPeppermint.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Logo;
-            this.btnSendViaPeppermint.Label = "Reply via Peppermint";
+            this.btnSendViaPeppermint.Label = "Add Audio Message";
             this.btnSendViaPeppermint.Name = "btnSendViaPeppermint";
             this.btnSendViaPeppermint.ShowImage = true;
             this.btnSendViaPeppermint.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnSendViaPeppermint_Click);
