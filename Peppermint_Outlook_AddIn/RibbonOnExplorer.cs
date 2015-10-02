@@ -16,28 +16,43 @@ namespace Peppermint_Outlook_AddIn
 
         }
 
+        private void RecordAndAttachAudio()
+        {
+            if (ThisAddIn.RecordAudioAndAttach("Explorer") == DialogResult.OK)
+            {
+                // Create a new email only of the audio is to be attached/sent
+                ThisAddIn.theCurrentMailItem = ThisAddIn.outlookApp.CreateItem(Outlook.OlItemType.olMailItem);
+
+                ThisAddIn.theCurrentMailItem.Display();
+
+                ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
+
+                ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
+                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                ThisAddIn.bPeppermintMessageInserted = true;
+
+                // Attach audio recording file
+                if ((ThisAddIn.theCurrentMailItem != null) && (File.Exists(ThisAddIn.AttachmentFilePath)))
+                    ThisAddIn.theCurrentMailItem.Attachments.Add(ThisAddIn.AttachmentFilePath);
+            }
+        }
         private void btnSendViaPeppermint_Click(object sender, RibbonControlEventArgs e)
         {
+            try 
+            {
+                if (ThisAddIn.outlookApp.ActiveExplorer().Selection == null) ;
+            }
+            catch ( Exception ex )
+            {
+                RecordAndAttachAudio();
+                return;
+            }
+
             if (ThisAddIn.outlookApp.ActiveExplorer().Selection.Count <= 0)
-                if (ThisAddIn.RecordAudioAndAttach("Explorer") == DialogResult.OK)
-                {
-                    // Create a new email only of the audio is to be attached/sent
-                    ThisAddIn.theCurrentMailItem = ThisAddIn.outlookApp.CreateItem(Outlook.OlItemType.olMailItem);
-
-                    ThisAddIn.theCurrentMailItem.Display();
-
-                    ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
-
-                    ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
-                    ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
-                    ThisAddIn.bPeppermintMessageInserted = true;
-
-                    // Attach audio recording file
-                    if ((ThisAddIn.theCurrentMailItem != null) && (File.Exists(ThisAddIn.AttachmentFilePath)))
-                        ThisAddIn.theCurrentMailItem.Attachments.Add(ThisAddIn.AttachmentFilePath);
-
-                    return;
-                }
+            {
+                RecordAndAttachAudio();
+                return;
+            }
 
             // If an email is selected Reply to that email via Peppermint, if none is selected then Start and audio recording, 
             // else if more then 1 -mail is selected, prompt the end-user to select a single e-mail 
