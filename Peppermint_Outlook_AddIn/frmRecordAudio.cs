@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 using NAudio.Wave;
 
@@ -20,8 +21,54 @@ namespace Peppermint_Outlook_AddIn
         private string outputFilename;
         private readonly string outputFolder;
         private string RECORDING = "Recording your message ...";
-        private string MIC_ERRROR = "Your microphone is not working. Please check your audio settings and try again.";
+        private string MIC_ERROR = "Your microphone is not working. Please check your audio settings and try again.";
+        private string MIC_INSERTED = "Ok The problem seems to be fixed, click on Record when ready";
 
+        private const int WM_DEVICECHANGE = 0x0219;
+        // New device has been plugged in
+        private const int DBT_DEVICEARRIVAL = 0x8000;
+        // Device removed 
+        private const int DBT_DEVICEREMOVECOMPLETE = 0x8004;
+        // Device has changed
+        private const int DBT_DEVNODES_CHANGED = 0x0007;
+        
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_DEVICECHANGE)
+            {
+                if (waveIn == null)
+                {
+                    waveIn = new WaveIn();
+                    waveIn.WaveFormat = new WaveFormat(8000, 1);
+                }
+
+                try
+                {
+                    waveIn.StartRecording();
+                    waveIn.StopRecording();
+
+                    if(btnAttachAudio.Enabled == false)
+                    {
+                        btnAttachAudio.Enabled = true;
+                        btnAttachAudio.Text = "Record";
+                        btnCancel.Enabled = true;
+                        pictureBox1.Image = Properties.Resources.icon_mic_on;
+                        txtMessage.Text = MIC_INSERTED;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ThisAddIn.AttachmentFilePath = String.Empty;
+                    txtMessage.Text = MIC_ERROR;
+                    pictureBox1.Image = Properties.Resources.icon_mic_off;
+                    waveIn = null;
+                    btnCancel.Enabled = false;
+                    btnAttachAudio.Enabled = false;
+                }
+            }
+            
+            base.WndProc(ref m);
+        }
         public frmRecordAudio()
         {
             InitializeComponent();
@@ -52,7 +99,7 @@ namespace Peppermint_Outlook_AddIn
             catch (Exception ex)
             {
                 ThisAddIn.AttachmentFilePath = String.Empty;
-                txtMessage.Text = MIC_ERRROR;
+                txtMessage.Text = MIC_ERROR;
                 pictureBox1.Image = Properties.Resources.icon_mic_off;
                 waveIn = null;
                 btnCancel.Enabled = false;
@@ -72,7 +119,7 @@ namespace Peppermint_Outlook_AddIn
                 if (e.Exception != null)
                 {
                     ThisAddIn.AttachmentFilePath = String.Empty;
-                    txtMessage.Text = MIC_ERRROR;
+                    txtMessage.Text = MIC_ERROR;
                     pictureBox1.Image = Properties.Resources.icon_mic_off;
                     waveIn = null;
                     btnCancel.Enabled = false;
