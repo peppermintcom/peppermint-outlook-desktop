@@ -77,7 +77,7 @@ namespace Peppermint_Outlook_AddIn
             Directory.CreateDirectory(outputFolder);
         }
 
-        private void frmRecordAudio_Load(object sender, EventArgs e)
+        private void StartRecording()
         {
             if (waveIn == null)
             {
@@ -90,8 +90,8 @@ namespace Peppermint_Outlook_AddIn
 
             outputFilename = String.Format("Peppermint_Message {0:yyyy-MMM-dd h-mm-ss tt}.wav", DateTime.Now);
             writer = new WaveFileWriter(Path.Combine(outputFolder, outputFilename), waveIn.WaveFormat);
-            try 
-            { 
+            try
+            {
                 waveIn.StartRecording();
                 txtMessage.Text = RECORDING;
                 pictureBox1.Image = Properties.Resources.GIF_01;
@@ -105,6 +105,12 @@ namespace Peppermint_Outlook_AddIn
                 btnCancel.Enabled = false;
                 btnAttachAudio.Enabled = false;
             }
+
+        }
+
+        private void frmRecordAudio_Load(object sender, EventArgs e)
+        {
+            StartRecording();
         }
 
         void waveIn_RecordingStopped(object sender, StoppedEventArgs e)
@@ -151,12 +157,24 @@ namespace Peppermint_Outlook_AddIn
 
         private void btnAttachAudio_Click(object sender, EventArgs e)
         {
-            if (waveIn != null)
-            {
-                waveIn.StopRecording();
-                ThisAddIn.AttachmentFilePath = outputFolder + "\\" + outputFilename;
+            // Either the button has text "Done" or "Record". If it is "Done" just complete the recording and attach the file,
+            // ELSE, if it is "Record" start a new recording session
+            if (btnAttachAudio.Text == "Done")
+            { 
+                if (waveIn != null)
+                {
+                    waveIn.StopRecording();
+                    ThisAddIn.AttachmentFilePath = outputFolder + "\\" + outputFilename;
 
-                FinalizeWaveFile();
+                    FinalizeWaveFile();
+                }
+            }
+            if (btnAttachAudio.Text == "Record")
+            {
+                // Start the recording
+                btnAttachAudio.Text = "Done";
+                this.DialogResult = DialogResult.None;
+                StartRecording();
             }
         }
 
@@ -167,6 +185,12 @@ namespace Peppermint_Outlook_AddIn
                 waveIn.StopRecording();
                 ThisAddIn.AttachmentFilePath = String.Empty;
             }
+        }
+
+        private void frmRecordAudio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.None)
+                e.Cancel = true;
         }
     }
 }
