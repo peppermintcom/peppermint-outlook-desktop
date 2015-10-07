@@ -94,7 +94,7 @@ namespace Peppermint_Outlook_AddIn
             {
                 waveIn.StartRecording();
                 txtMessage.Text = RECORDING;
-                pictureBox1.Image = Properties.Resources.GIF_01;
+                pictureBox1.Image = Properties.Resources.Recording_no_delay;
             }
             catch (Exception ex)
             {
