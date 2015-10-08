@@ -58,7 +58,7 @@ namespace Peppermint_Outlook_AddIn
             // else if more then 1 -mail is selected, prompt the end-user to select a single e-mail 
             if (ThisAddIn.outlookApp.ActiveExplorer().Selection.Count > 1)
             {
-                MessageBox.Show("Please select a single e-mail to respond to via Peppermint","More than 1 e-mail selected",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Please select a single e-mail to respond to via Peppermint", "More than one e-mail selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
