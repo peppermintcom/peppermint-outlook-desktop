@@ -31,7 +31,8 @@ namespace Peppermint_Outlook_AddIn
         #endregion
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
-        {
+        {   
+            //
             outlookApp = Application;
 
             _inspectors = Application.Inspectors;
