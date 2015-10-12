@@ -2,10 +2,15 @@
 <customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
     <ribbon>
         <tabs>
-            <tab idMso="TabReadMessage">
-                <group id="group1" insertAfterMso="GroupRespond">
-                    <button id="btnRecordMessage" onAction="btnRecordMessage_Click" label="Reply via Peppermint" getImage="btnRecordMessage_getImage" size="large" />
-                </group>
+          <tab idMso="TabMail">
+            <group id="group1" insertBeforeMso="GroupMailDelete" label="Peppermint">
+              <button id="btnSendViaPeppermint" onAction="btnSendViaPeppermint_Click" label="Add Audio Message" getImage="btnRecordMessage_getImage" size="large" />
+            </group>
+          </tab>
+          <tab idMso="TabReadMessage">
+            <group id="group2" insertAfterMso="GroupRespond">
+                <button id="btnRecordMessage" onAction="btnRecordMessage_Click" label="Reply via Peppermint" getImage="btnRecordMessage_getImage" size="large" />
+            </group>
             </tab>
         </tabs>
     </ribbon>
