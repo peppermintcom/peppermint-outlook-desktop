@@ -239,6 +239,9 @@
     <Compile Include="ReadEmailRibbon.Designer.cs">
       <DependentUpon>ReadEmailRibbon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ribbons.cs">
+      <XmlRibbon>true</XmlRibbon>
+    </Compile>
     <Compile Include="RibbonOnExplorer.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -270,6 +273,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Recording_no_delay.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Ribbons.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

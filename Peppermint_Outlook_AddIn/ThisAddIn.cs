@@ -111,6 +111,11 @@ namespace Peppermint_Outlook_AddIn
             return dr;
         }
 
+        protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        {
+            return new Ribbons();
+        }
+
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
