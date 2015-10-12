@@ -212,12 +212,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReadEmailRibbon.resx">
-      <DependentUpon>ReadEmailRibbon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RibbonOnExplorer.resx">
-      <DependentUpon>RibbonOnExplorer.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Peppermint_Outlook_AddIn_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -233,20 +227,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ReadEmailRibbon.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ReadEmailRibbon.Designer.cs">
-      <DependentUpon>ReadEmailRibbon.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ribbons.cs">
       <XmlRibbon>true</XmlRibbon>
-    </Compile>
-    <Compile Include="RibbonOnExplorer.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RibbonOnExplorer.Designer.cs">
-      <DependentUpon>RibbonOnExplorer.cs</DependentUpon>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>

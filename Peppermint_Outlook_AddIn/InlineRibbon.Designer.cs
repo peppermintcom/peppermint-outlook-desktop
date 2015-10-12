@@ -1,13 +1,13 @@
 ﻿namespace Peppermint_Outlook_AddIn
 {
-    partial class RibbonOnExplorer : Microsoft.Office.Tools.Ribbon.RibbonBase
+    partial class InlineRibbon : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        public RibbonOnExplorer()
+        public InlineRibbon()
             : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
@@ -36,40 +36,34 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.btnSendViaPeppermint = this.Factory.CreateRibbonButton();
+            this.button1 = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab1.ControlId.OfficeId = "TabMail";
+            this.tab1.ControlId.OfficeId = "TabMessage";
             this.tab1.Groups.Add(this.group1);
-            this.tab1.Label = "TabMail";
+            this.tab1.Label = "TabMessage";
             this.tab1.Name = "tab1";
             // 
             // group1
             // 
-            this.group1.Items.Add(this.btnSendViaPeppermint);
-            this.group1.Label = "Peppermint";
+            this.group1.Items.Add(this.button1);
             this.group1.Name = "group1";
-            this.group1.Position = this.Factory.RibbonPosition.BeforeOfficeId("GroupMailDelete");
             // 
-            // btnSendViaPeppermint
+            // button1
             // 
-            this.btnSendViaPeppermint.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.btnSendViaPeppermint.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Logo;
-            this.btnSendViaPeppermint.Label = "Add Audio Message";
-            this.btnSendViaPeppermint.Name = "btnSendViaPeppermint";
-            this.btnSendViaPeppermint.ShowImage = true;
-            this.btnSendViaPeppermint.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnSendViaPeppermint_Click);
+            this.button1.Label = "PM response";
+            this.button1.Name = "button1";
             // 
-            // RibbonOnExplorer
+            // InlineRibbon
             // 
-            this.Name = "RibbonOnExplorer";
+            this.Name = "InlineRibbon";
             this.RibbonType = "Microsoft.Outlook.Explorer";
             this.Tabs.Add(this.tab1);
-            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.RibbonOnExplorer_Load);
+            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.InlineRibbon_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
             this.group1.ResumeLayout(false);
@@ -81,14 +75,14 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnSendViaPeppermint;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
     }
 
     partial class ThisRibbonCollection
     {
-        internal RibbonOnExplorer RibbonOnExplorer
+        internal InlineRibbon InlineRibbon
         {
-            get { return this.GetRibbon<RibbonOnExplorer>(); }
+            get { return this.GetRibbon<InlineRibbon>(); }
         }
     }
 }
