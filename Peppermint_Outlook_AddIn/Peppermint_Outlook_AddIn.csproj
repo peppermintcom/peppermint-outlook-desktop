@@ -186,12 +186,6 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="CreateEmailRibbon.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CreateEmailRibbon.Designer.cs">
-      <DependentUpon>CreateEmailRibbon.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmRecordAudio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,9 +195,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <EmbeddedResource Include="CreateEmailRibbon.resx">
-      <DependentUpon>CreateEmailRibbon.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmRecordAudio.resx">
       <DependentUpon>frmRecordAudio.cs</DependentUpon>
     </EmbeddedResource>

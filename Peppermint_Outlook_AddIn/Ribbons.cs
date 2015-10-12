@@ -65,6 +65,12 @@ namespace Peppermint_Outlook_AddIn
             ThisAddIn.RecordAudioAndAttach("Read");
         }
 
+        public void btnRecordMessageNewMail_Click(Office.IRibbonControl control)
+        {
+            ThisAddIn.theCurrentMailItem.Save();
+            ThisAddIn.RecordAudioAndAttach("Create");
+        }
+
         public void btnSendViaPeppermint_Click(Office.IRibbonControl control)
         {
             try
