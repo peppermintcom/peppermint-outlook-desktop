@@ -31,8 +31,10 @@ namespace Peppermint_Outlook_AddIn
         #endregion
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
-        {   
-            //
+        {
+            // VSTO Runtime Update to Address Slow Shutdown and “Unknown Publisher” for SHA256 Certificate 
+            //http://blogs.msdn.com/b/vsto/archive/2014/04/10/vsto-runtime-update-to-address-slow-shutdown-and-unknown-publisher-for-sha256-certificates.aspx
+
             outlookApp = Application;
 
             _inspectors = Application.Inspectors;
