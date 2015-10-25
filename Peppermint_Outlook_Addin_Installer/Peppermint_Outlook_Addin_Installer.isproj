@@ -28,4 +28,10 @@
 		</TaggedOutputs> -->
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\Peppermint_Outlook_AddIn\Peppermint_Outlook_AddIn.csproj">
+			<Name>Peppermint_Outlook_AddIn</Name>
+			<Project>{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}</Project>
+		</ProjectReference>
+	</ItemGroup>
 </Project>
