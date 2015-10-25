@@ -4444,7 +4444,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>_0106669D110E221FA1D029945116EE6E</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Description</td><td>Peppermint_Outlook_AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
-		<row><td>_2DE834B537E4AB375EE51BCAB9FE4905</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Manifest</td><td>file://[INSTALLDIR]/Peppermint_Outlook_AddIn.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
+		<row><td>_2DE834B537E4AB375EE51BCAB9FE4905</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Manifest</td><td>file://[INSTALLDIR]\OutlookAddin\Peppermint_Outlook_AddIn.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_78886A6BE144DAA80C26E8DA02D260A4</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_AEF1FD2E03F0831D65D782468313C191</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>FriendlyName</td><td>Peppermint Outlook AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 	</table>
