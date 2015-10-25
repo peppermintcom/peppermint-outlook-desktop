@@ -5,16 +5,37 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peppermint_Outlook_AddIn", "Peppermint_Outlook_AddIn\Peppermint_Outlook_AddIn.csproj", "{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Peppermint_Outlook_Addin_Installer", "Peppermint_Outlook_Addin_Installer\Peppermint_Outlook_Addin_Installer.isproj", "{4662BD7F-98F5-4104-971A-3F826839A31D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{0E25A0C2-FED5-4231-83F7-6B14819C2AA1}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.Debug|Any CPU.ActiveCfg = DVD-5
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.Debug|Any CPU.Build.0 = DVD-5
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.DVD-5|Any CPU.Build.0 = DVD-5
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.Release|Any CPU.ActiveCfg = SingleImage
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.Release|Any CPU.Build.0 = SingleImage
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{4662BD7F-98F5-4104-971A-3F826839A31D}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
