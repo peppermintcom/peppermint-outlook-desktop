@@ -24,54 +24,70 @@ namespace Peppermint_Outlook_AddIn
         private string MIC_ERROR = "Your microphone is not working. Please check your audio settings and try again.";
         private string MIC_INSERTED = "Ok The problem seems to be fixed, click on Record when ready";
 
+        private bool bRecordingInProgress;
+
+        //WIN API
         private const int WM_DEVICECHANGE = 0x0219;
+        
         // New device has been plugged in
         private const int DBT_DEVICEARRIVAL = 0x8000;
+        
         // Device removed 
         private const int DBT_DEVICEREMOVECOMPLETE = 0x8004;
+        
         // Device has changed
         private const int DBT_DEVNODES_CHANGED = 0x0007;
         
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == WM_DEVICECHANGE)
+            if (bRecordingInProgress == true)
             {
-                if (waveIn == null)
+                // Don't process any device change events now. mic removal will anyway will be catched as an exception while recording.
+            }
+            else 
+            {
+                if (m.Msg == WM_DEVICECHANGE)
                 {
-                    waveIn = new WaveIn();
-                    waveIn.WaveFormat = new WaveFormat(8000, 1);
-                }
-
-                try
-                {
-                    waveIn.StartRecording();
-                    waveIn.StopRecording();
-
-                    if(btnAttachAudio.Enabled == false)
+                    if (waveIn == null)
                     {
-                        btnAttachAudio.Enabled = true;
-                        btnAttachAudio.Text = "Record";
-                        btnCancel.Enabled = true;
-                        pictureBox1.Image = Properties.Resources.icon_mic_on;
-                        txtMessage.Text = MIC_INSERTED;
+                        waveIn = new WaveIn();
+                        waveIn.WaveFormat = new WaveFormat(8000, 1);
+                    }
+
+                    try
+                    {
+                        waveIn.StartRecording();
+                        waveIn.StopRecording();
+
+                        if(btnAttachAudio.Enabled == false)
+                        {
+                            btnAttachAudio.Enabled = true;
+                            btnAttachAudio.Text = "Record";
+                            btnCancel.Enabled = true;
+                            pictureBox1.Image = Properties.Resources.icon_mic_on;
+                            txtMessage.Text = MIC_INSERTED;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        ThisAddIn.AttachmentFilePath = String.Empty;
+                        txtMessage.Text = MIC_ERROR;
+                        pictureBox1.Image = Properties.Resources.icon_mic_off;
+                        waveIn = null;
+                        btnCancel.Enabled = false;
+                        btnAttachAudio.Enabled = false;
+                        bRecordingInProgress = false;
                     }
                 }
-                catch (Exception ex)
-                {
-                    ThisAddIn.AttachmentFilePath = String.Empty;
-                    txtMessage.Text = MIC_ERROR;
-                    pictureBox1.Image = Properties.Resources.icon_mic_off;
-                    waveIn = null;
-                    btnCancel.Enabled = false;
-                    btnAttachAudio.Enabled = false;
-                }
             }
-            
+
             base.WndProc(ref m);
         }
         public frmRecordAudio()
         {
             InitializeComponent();
+
+            bRecordingInProgress = true;
 
             outputFolder = Path.Combine(Path.GetTempPath(), "Peppermint_Outlook_Addin");
             Directory.CreateDirectory(outputFolder);
@@ -86,6 +102,8 @@ namespace Peppermint_Outlook_AddIn
 
                 waveIn.DataAvailable += waveIn_DataAvailable;
                 waveIn.RecordingStopped += waveIn_RecordingStopped;
+
+                bRecordingInProgress = true;
             }
 
             outputFilename = String.Format("Peppermint_Message {0:yyyy-MMM-dd h-mm-ss tt}.wav", DateTime.Now);
@@ -132,6 +150,7 @@ namespace Peppermint_Outlook_AddIn
                     btnAttachAudio.Enabled = false;
                 }
             }
+            bRecordingInProgress = false;
         }
 
         private void FinalizeWaveFile()
@@ -141,7 +160,9 @@ namespace Peppermint_Outlook_AddIn
                 writer.Dispose();
                 writer = null;
             }
+            bRecordingInProgress = false;
         }
+
         void waveIn_DataAvailable(object sender, WaveInEventArgs e)
         {
             if (this.InvokeRequired)
