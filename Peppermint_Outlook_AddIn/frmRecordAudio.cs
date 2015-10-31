@@ -26,7 +26,7 @@ namespace Peppermint_Outlook_AddIn
 
         private bool bRecordingInProgress;
 
-        //WIN API
+        // WIN API
         private const int WM_DEVICECHANGE = 0x0219;
         
         // New device has been plugged in
@@ -58,6 +58,8 @@ namespace Peppermint_Outlook_AddIn
                     {
                         waveIn.StartRecording();
                         waveIn.StopRecording();
+                        waveIn.Dispose();
+                        waveIn = null;
 
                         if(btnAttachAudio.Enabled == false)
                         {
@@ -67,16 +69,17 @@ namespace Peppermint_Outlook_AddIn
                             pictureBox1.Image = Properties.Resources.icon_mic_on;
                             txtMessage.Text = MIC_INSERTED;
                         }
+                        bRecordingInProgress = false;
                     }
                     catch (Exception ex)
                     {
+                        bRecordingInProgress = false;
                         ThisAddIn.AttachmentFilePath = String.Empty;
                         txtMessage.Text = MIC_ERROR;
                         pictureBox1.Image = Properties.Resources.icon_mic_off;
                         waveIn = null;
                         btnCancel.Enabled = false;
                         btnAttachAudio.Enabled = false;
-                        bRecordingInProgress = false;
                     }
                 }
             }
@@ -95,6 +98,8 @@ namespace Peppermint_Outlook_AddIn
 
         private void StartRecording()
         {
+            bRecordingInProgress = true;
+
             if (waveIn == null)
             {
                 waveIn = new WaveIn();
@@ -102,8 +107,6 @@ namespace Peppermint_Outlook_AddIn
 
                 waveIn.DataAvailable += waveIn_DataAvailable;
                 waveIn.RecordingStopped += waveIn_RecordingStopped;
-
-                bRecordingInProgress = true;
             }
 
             outputFilename = String.Format("Peppermint_Message {0:yyyy-MMM-dd h-mm-ss tt}.wav", DateTime.Now);
@@ -116,6 +119,7 @@ namespace Peppermint_Outlook_AddIn
             }
             catch (Exception ex)
             {
+                bRecordingInProgress = false;
                 ThisAddIn.AttachmentFilePath = String.Empty;
                 txtMessage.Text = MIC_ERROR;
                 pictureBox1.Image = Properties.Resources.icon_mic_off;
