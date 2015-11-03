@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SetupPrereq>
+	<conditions>
+		<condition Type="32" Comparison="2" Path="HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" FileName="Version" ReturnValue="10.0.60724"></condition>
+	</conditions>
+	<files>
+		<file LocalFile="&lt;ISProductFolder&gt;\\SetupPrerequisites\VSTO 2010 Runtime\vstor_redist.exe" URL="http://go.microsoft.com/fwlink/?LinkId=158918" CheckSum="A4B529647945755CA27C3560CFB96D86" FileSize="0,40102072"></file>
+	</files>
+	<execute file="vstor_redist.exe" cmdline="/q:a /c:&quot;install /q /l&quot;" cmdlinesilent="/q:a /c:&quot;install /q /l&quot;" returncodetoreboot="1641,3010" requiresmsiengine="1"></execute>
+	<dependencies>
+		<dependency File="&lt;ISProductFolder&gt;\SetupPrerequisites\Microsoft .NET Framework 3.5.prq"></dependency>
+	</dependencies>
+	<properties Id="Microsoft Vsto 2010  Runtime" Description="This prerequisite installs the Microsoft Visual Studio 2010 Tools for Office Runtime." AltPrqURL="http://saturn.installshield.com/is/prerequisites/microsoft vsto 2010 runtime.prq"></properties>
+	<behavior Reboot="2"></behavior>
+</SetupPrereq>

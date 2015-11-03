@@ -2623,7 +2623,7 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
-		<row><td>_6C1D7294_7BD6_4201_B16E_A7315A7B88B0_</td><td>Microsoft VSTO 2010 Runtime.prq</td><td/><td>2</td><td/></row>
+		<row><td>_5CB9F50E_4402_4CE2_A50B_A18836CBFF70_</td><td>Microsoft VSTO 2010 Runtime.prq</td><td/><td>2</td><td/></row>
 		<row><td>_BE9B2F4E_2E92_4EC0_9A06_E4EA4C45BE45_</td><td>Microsoft .NET Framework 4.5 Web.prq</td><td/><td>2</td><td/></row>
 		<row><td>_F2810CE2_6283_4B6D_A4FD_F01D28D02B41_</td><td>Windows Installer 4.5 for Windows XP SP2 and later (x86).prq</td><td/><td>2</td><td/></row>
 	</table>
