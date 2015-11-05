@@ -70,10 +70,12 @@ namespace Peppermint_Outlook_AddIn
                             txtMessage.Text = MIC_INSERTED;
                         }
                         bRecordingInProgress = false;
+                        lblRecordTimer.Visible = false;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         bRecordingInProgress = false;
+                        lblRecordTimer.Visible = false;
                         ThisAddIn.AttachmentFilePath = String.Empty;
                         txtMessage.Text = MIC_ERROR;
                         pictureBox1.Image = Properties.Resources.icon_mic_off;
@@ -91,6 +93,7 @@ namespace Peppermint_Outlook_AddIn
             InitializeComponent();
 
             bRecordingInProgress = true;
+            lblRecordTimer.Visible = true;
 
             outputFolder = Path.Combine(Path.GetTempPath(), "Peppermint_Outlook_Addin");
             Directory.CreateDirectory(outputFolder);
@@ -99,6 +102,7 @@ namespace Peppermint_Outlook_AddIn
         private void StartRecording()
         {
             bRecordingInProgress = true;
+            lblRecordTimer.Visible = true;
 
             if (waveIn == null)
             {
@@ -117,9 +121,10 @@ namespace Peppermint_Outlook_AddIn
                 txtMessage.Text = RECORDING;
                 pictureBox1.Image = Properties.Resources.Recording_no_delay;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 bRecordingInProgress = false;
+                lblRecordTimer.Visible = false;
                 ThisAddIn.AttachmentFilePath = String.Empty;
                 txtMessage.Text = MIC_ERROR;
                 pictureBox1.Image = Properties.Resources.icon_mic_off;
@@ -155,6 +160,7 @@ namespace Peppermint_Outlook_AddIn
                 }
             }
             bRecordingInProgress = false;
+            lblRecordTimer.Visible = false;
         }
 
         private void FinalizeWaveFile()
@@ -165,6 +171,7 @@ namespace Peppermint_Outlook_AddIn
                 writer = null;
             }
             bRecordingInProgress = false;
+            lblRecordTimer.Visible = false;
         }
 
         void waveIn_DataAvailable(object sender, WaveInEventArgs e)

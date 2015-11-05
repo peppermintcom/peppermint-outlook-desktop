@@ -32,6 +32,7 @@
             this.btnAttachAudio = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtMessage = new System.Windows.Forms.Label();
+            this.lblRecordTimer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(10, 151);
+            this.btnCancel.Location = new System.Drawing.Point(10, 171);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(147, 32);
             this.btnCancel.TabIndex = 0;
@@ -55,7 +56,7 @@
             this.btnAttachAudio.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAttachAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttachAudio.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAttachAudio.Location = new System.Drawing.Point(164, 151);
+            this.btnAttachAudio.Location = new System.Drawing.Point(164, 171);
             this.btnAttachAudio.Name = "btnAttachAudio";
             this.btnAttachAudio.Size = new System.Drawing.Size(147, 32);
             this.btnAttachAudio.TabIndex = 1;
@@ -75,11 +76,23 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(24, 94);
+            this.txtMessage.Location = new System.Drawing.Point(24, 114);
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(273, 43);
             this.txtMessage.TabIndex = 5;
             this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblRecordTimer
+            // 
+            this.lblRecordTimer.AutoSize = true;
+            this.lblRecordTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordTimer.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblRecordTimer.Location = new System.Drawing.Point(143, 89);
+            this.lblRecordTimer.Name = "lblRecordTimer";
+            this.lblRecordTimer.Size = new System.Drawing.Size(36, 16);
+            this.lblRecordTimer.TabIndex = 6;
+            this.lblRecordTimer.Text = "0:00";
+            this.lblRecordTimer.Visible = false;
             // 
             // frmRecordAudio
             // 
@@ -88,7 +101,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(322, 190);
+            this.ClientSize = new System.Drawing.Size(322, 214);
+            this.Controls.Add(this.lblRecordTimer);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAttachAudio);
@@ -104,6 +118,7 @@
             this.Load += new System.EventHandler(this.frmRecordAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -113,5 +128,6 @@
         private System.Windows.Forms.Button btnAttachAudio;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label txtMessage;
+        private System.Windows.Forms.Label lblRecordTimer;
     }
 }

@@ -75,9 +75,9 @@ namespace Peppermint_Outlook_AddIn
         {
             try
             {
-                if (ThisAddIn.outlookApp.ActiveExplorer().Selection == null) ;
+                if (ThisAddIn.outlookApp.ActiveExplorer().Selection == null);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 RecordAndAttachAudio();
                 return;
