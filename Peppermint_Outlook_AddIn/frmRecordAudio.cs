@@ -184,6 +184,9 @@ namespace Peppermint_Outlook_AddIn
             {
                 writer.Write(e.Buffer, 0, e.BytesRecorded);
                 int secondsRecorded = (int)(writer.Length / writer.WaveFormat.AverageBytesPerSecond);
+
+                TimeSpan ts = TimeSpan.FromSeconds(secondsRecorded);
+                lblRecordTimer.Text = string.Format("{0:D2}:{1:D2}", ts.Minutes,ts.Seconds);
             }
         }
 
