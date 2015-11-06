@@ -342,7 +342,6 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{B353C3E6-2C1D-48EF-AAC3-FD303153C74E}</td><td>PEPPEMINT.COM1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{4354AD94-8B22-41E6-9774-8EE0C60C7264}</td><td>OUTLOOKADDIN</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{F1ECE0D5-ED7B-4879-9921-4FF449627690}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{143B0521-9FA6-4AF8-B96C-72DB5E950AE8}</td><td>DATABASE_DIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{B7190BBA-879C-4B46-90E9-448DA05E3A4F}</td><td>DATABASEDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Peppermint_Outlook_AddIn.Primary_output</td><td>{A2D62934-FEF3-4FE7-8498-8D30B508AB47}</td><td>OUTLOOKADDIN</td><td>2</td><td/><td>peppermint_outlook_addin.pri</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
@@ -1054,7 +1053,6 @@
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
 		<row><td>DATABASEDIR</td><td>ISX_DEFAULTCOMPONENT5</td></row>
-		<row><td>DATABASE_DIR</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>PEPPEMINT.COM1</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
@@ -1142,7 +1140,6 @@
 		<row><td>CommonFiles64Folder</td><td>TARGETDIR</td><td>.:Common64</td><td/><td>0</td><td/></row>
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
-		<row><td>DATABASE_DIR</td><td>OUTLOOKADDIN</td><td>Database</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
@@ -1156,7 +1153,7 @@
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>OUTLOOKADDIN</td><td>PEPPEMINT.COM1</td><td>OUTLOO~1|OutlookAddin</td><td/><td>0</td><td/></row>
-		<row><td>PEPPEMINT.COM1</td><td>AppDataFolder</td><td>PEPPEM~1|Peppemint.com</td><td/><td>0</td><td/></row>
+		<row><td>PEPPEMINT.COM1</td><td>AppDataFolder</td><td>PEPPER~1|Peppermint.com</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
 		<row><td>PrimaryVolumePath</td><td>TARGETDIR</td><td>.:Primar~1|PrimaryVolumePath</td><td/><td>0</td><td/></row>
 		<row><td>PrintHoodFolder</td><td>TARGETDIR</td><td>.:PRINTH~1|PrintHood</td><td/><td>0</td><td/></row>
@@ -1870,7 +1867,6 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>AlwaysInstall</td><td>Peppermint_Outlook_AddIn.Primary_output</td></row>
 	</table>
@@ -2036,7 +2032,6 @@
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_9EB29AD8_3665_448B_8A58_7B3FC7B99D97_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_846D9F3F_E641_4493_B0F9_3BFDD2039B10_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_0F42A1F8_BCC7_4377_8B5F_54ACBF423553_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_9D845DDC_9F9B_4F1A_92EC_EFD15052F7F2_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_11741E34_FE2D_4D81_B20A_5A35FE2717AC_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Peppermint_Outlook_AddIn.Primary_output</td><td/><td/><td>_A742A0C4_EAEC_4966_8966_DF16689843D4_FILTER</td><td/><td/><td/><td/></row>
 	</table>
@@ -2659,7 +2654,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Peppemint.com</td><td>0</td><td/><td>-853328652</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Peppermint.com</td><td>0</td><td/><td>899877716</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-853332940</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-853332940</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-853332940</td></row>
@@ -3761,7 +3756,7 @@
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-853332940</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-853326796</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td/><td>0</td><td/><td>-853328748</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>http://www.Peppemint.com.com</td><td>0</td><td/><td>-853328652</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Peppermint.com</td><td>0</td><td/><td>899894100</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Peppermint.com</td><td>0</td><td/><td>-853316332</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-853332940</td></row>
 	</table>
@@ -4376,7 +4371,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{F404D9AD-899F-45E3-93EC-E8946F2B761E}</td><td/></row>
 		<row><td>ProductName</td><td>Peppermint Outlook Addin</td><td/></row>
-		<row><td>ProductVersion</td><td>1.20.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>1.30.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4444,7 +4439,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
 		<row><td>_0106669D110E221FA1D029945116EE6E</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Description</td><td>Peppermint_Outlook_AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
-		<row><td>_2DE834B537E4AB375EE51BCAB9FE4905</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Manifest</td><td>file://[INSTALLDIR]\OutlookAddin\Peppermint_Outlook_AddIn.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
+		<row><td>_2DE834B537E4AB375EE51BCAB9FE4905</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Manifest</td><td>file://[INSTALLDIR]OutlookAddin\Peppermint_Outlook_Addin.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_78886A6BE144DAA80C26E8DA02D260A4</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_AEF1FD2E03F0831D65D782468313C191</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>FriendlyName</td><td>Peppermint Outlook AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 	</table>
