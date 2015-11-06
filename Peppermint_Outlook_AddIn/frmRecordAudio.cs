@@ -23,6 +23,7 @@ namespace Peppermint_Outlook_AddIn
         private string RECORDING = "Recording your message ...";
         private string MIC_ERROR = "Your microphone is not working. Please check your audio settings and try again.";
         private string MIC_INSERTED = "Ok The problem seems to be fixed, click on Record when ready";
+        private const int MAX_RECORDING_TIME = 1000 * 10 * 60; // max audio recording time seconds = 10 mins
 
         private bool bRecordingInProgress;
 
@@ -182,11 +183,21 @@ namespace Peppermint_Outlook_AddIn
             }
             else
             {
+                if (writer == null)
+                    return;
+
                 writer.Write(e.Buffer, 0, e.BytesRecorded);
                 int secondsRecorded = (int)(writer.Length / writer.WaveFormat.AverageBytesPerSecond);
 
                 TimeSpan ts = TimeSpan.FromSeconds(secondsRecorded);
                 lblRecordTimer.Text = string.Format("{0:D2}:{1:D2}", ts.Minutes,ts.Seconds);
+
+                if (secondsRecorded >= MAX_RECORDING_TIME)
+                {
+                    btnAttachAudio_Click(sender, e);
+                    this.DialogResult = DialogResult.OK;
+                    this.Dispose();
+                }
             }
         }
 
