@@ -4303,6 +4303,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L0">Value</col>
 		<col def="S255">ISComments</col>
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
+		<row><td>ARPNOMODIFY</td><td>1</td><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
 		<row><td>ARPSIZE</td><td/><td/></row>
 		<row><td>ARPURLINFOABOUT</td><td>##ID_STRING3##</td><td/></row>
