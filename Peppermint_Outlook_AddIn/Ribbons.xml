@@ -13,14 +13,14 @@
             <group id="group2" insertBeforeMso="GroupMailDelete" label="Peppermint">
               <button id="btnSendViaPeppermint" onAction="btnSendViaPeppermint_Click" label="Add Audio Message" getImage="btnRecordMessage_getImage" size="large" 
                       screentip="Start an audio recording" 
-                      supertip="Add audio message(s) to your e-mail. Multiple messages can be recorded and attached."/>
+                      supertip="Click to start recording an audio message using Peppermint."/>
             </group>
           </tab>
           <tab idMso="TabReadMessage">
             <group id="group3" insertAfterMso="GroupRespond">
                 <button id="btnRecordMessage" onAction="btnRecordMessage_Click" label="Reply via Peppermint" getImage="btnRecordMessage_getImage" size="large" 
-                        screentip="Start an audio recording" 
-                        supertip="Respond to e-mail by recording your message and send the recorded file."/>
+                        screentip="Start an audio reply" 
+                        supertip="Click to reply to the email with an audio message."/>
             </group>
             </tab>
         </tabs>
