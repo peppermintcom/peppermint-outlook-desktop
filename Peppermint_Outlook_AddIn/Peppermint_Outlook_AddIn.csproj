@@ -43,7 +43,7 @@
     <PublisherName />
     <SupportUrl />
     <FriendlyName>Peppermint Outlook AddIn</FriendlyName>
-    <OfficeApplicationDescription />
+    <OfficeApplicationDescription>Send and reply to email with audio messages</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
