@@ -33,6 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtMessage = new System.Windows.Forms.Label();
             this.lblRecordTimer = new System.Windows.Forms.Label();
+            this.lblStop = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,9 +43,9 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(10, 171);
+            this.btnCancel.Location = new System.Drawing.Point(3, 171);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(147, 32);
+            this.btnCancel.Size = new System.Drawing.Size(169, 32);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -56,11 +57,11 @@
             this.btnAttachAudio.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAttachAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttachAudio.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAttachAudio.Location = new System.Drawing.Point(164, 171);
+            this.btnAttachAudio.Location = new System.Drawing.Point(179, 171);
             this.btnAttachAudio.Name = "btnAttachAudio";
-            this.btnAttachAudio.Size = new System.Drawing.Size(147, 32);
+            this.btnAttachAudio.Size = new System.Drawing.Size(169, 32);
             this.btnAttachAudio.TabIndex = 1;
-            this.btnAttachAudio.Text = "Done";
+            this.btnAttachAudio.Text = "Attach";
             this.btnAttachAudio.UseVisualStyleBackColor = false;
             this.btnAttachAudio.Click += new System.EventHandler(this.btnAttachAudio_Click);
             // 
@@ -94,6 +95,18 @@
             this.lblRecordTimer.Text = "0:00";
             this.lblRecordTimer.Visible = false;
             // 
+            // lblStop
+            // 
+            this.lblStop.AutoSize = true;
+            this.lblStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStop.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblStop.Location = new System.Drawing.Point(303, 127);
+            this.lblStop.Name = "lblStop";
+            this.lblStop.Size = new System.Drawing.Size(40, 16);
+            this.lblStop.TabIndex = 7;
+            this.lblStop.Text = "Stop";
+            this.lblStop.Click += new System.EventHandler(this.lblStop_Click);
+            // 
             // frmRecordAudio
             // 
             this.AcceptButton = this.btnAttachAudio;
@@ -101,7 +114,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(322, 214);
+            this.ClientSize = new System.Drawing.Size(356, 214);
+            this.Controls.Add(this.lblStop);
             this.Controls.Add(this.lblRecordTimer);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.pictureBox1);
@@ -129,5 +143,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label txtMessage;
         private System.Windows.Forms.Label lblRecordTimer;
+        private System.Windows.Forms.Label lblStop;
     }
 }

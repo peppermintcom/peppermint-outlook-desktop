@@ -24,6 +24,7 @@ namespace Peppermint_Outlook_AddIn
         private string MIC_ERROR = "Your microphone is not working. Please check your audio settings and try again.";
         private string MIC_INSERTED = "Ok The problem seems to be fixed, click on Record when ready";
         private const int MAX_RECORDING_TIME = 10 * 60; // max audio recording time seconds = 10 mins
+        private string RECORDING_CONCLUDED = "Recording concluded";
 
         private bool bRecordingInProgress;
 
@@ -69,6 +70,7 @@ namespace Peppermint_Outlook_AddIn
                             btnCancel.Enabled = true;
                             pictureBox1.Image = Properties.Resources.icon_mic_on;
                             txtMessage.Text = MIC_INSERTED;
+                            lblStop.Visible = false;
                         }
                         bRecordingInProgress = false;
                         lblRecordTimer.Visible = false;
@@ -77,6 +79,7 @@ namespace Peppermint_Outlook_AddIn
                     {
                         bRecordingInProgress = false;
                         lblRecordTimer.Visible = false;
+                        lblStop.Visible = false;
                         ThisAddIn.AttachmentFilePath = String.Empty;
                         txtMessage.Text = MIC_ERROR;
                         pictureBox1.Image = Properties.Resources.icon_mic_off;
@@ -126,6 +129,7 @@ namespace Peppermint_Outlook_AddIn
             {
                 bRecordingInProgress = false;
                 lblRecordTimer.Visible = false;
+                lblStop.Visible = false;
                 ThisAddIn.AttachmentFilePath = String.Empty;
                 txtMessage.Text = MIC_ERROR;
                 pictureBox1.Image = Properties.Resources.icon_mic_off;
@@ -154,6 +158,7 @@ namespace Peppermint_Outlook_AddIn
                 {
                     ThisAddIn.AttachmentFilePath = String.Empty;
                     txtMessage.Text = MIC_ERROR;
+                    lblStop.Visible = false;
                     pictureBox1.Image = Properties.Resources.icon_mic_off;
                     waveIn = null;
                     btnCancel.Enabled = false;
@@ -203,9 +208,9 @@ namespace Peppermint_Outlook_AddIn
 
         private void btnAttachAudio_Click(object sender, EventArgs e)
         {
-            // Either the button has text "Done" or "Record". If it is "Done" just complete the recording and attach the file,
+            // Either the button has text "Attach" or "Record". If it is "Attach" just complete the recording and attach the file,
             // ELSE, if it is "Record" start a new recording session
-            if (btnAttachAudio.Text == "Done")
+            if (btnAttachAudio.Text == "Attach")
             { 
                 if (waveIn != null)
                 {
@@ -218,9 +223,10 @@ namespace Peppermint_Outlook_AddIn
             if (btnAttachAudio.Text == "Record")
             {
                 // Start the recording
-                btnAttachAudio.Text = "Done";
+                btnAttachAudio.Text = "Attach";
                 this.DialogResult = DialogResult.None;
                 StartRecording();
+                lblStop.Visible = true;
             }
         }
 
@@ -237,6 +243,20 @@ namespace Peppermint_Outlook_AddIn
         {
             if (this.DialogResult == DialogResult.None)
                 e.Cancel = true;
+        }
+
+        private void lblStop_Click(object sender, EventArgs e)
+        {
+            // Stop the recording, but do not attach the file, yet
+            if (waveIn != null)
+            {
+                waveIn.StopRecording();
+
+                FinalizeWaveFile();
+
+                pictureBox1.Image = Properties.Resources.Logo;
+                txtMessage.Text = RECORDING_CONCLUDED;
+            }
         }
     }
 }
