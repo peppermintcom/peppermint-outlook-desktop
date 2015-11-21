@@ -268,7 +268,7 @@ namespace Peppermint_Outlook_AddIn
             txtMessage.Text = PLAYING_AUDIO;
             lblStop.Visible = false;
             this.Enabled = false;
-            //Thread.Sleep(500);
+            Thread.Sleep(50);
 
             string strFileToPlay = outputFolder + "\\" + outputFilename;
             
@@ -286,7 +286,7 @@ namespace Peppermint_Outlook_AddIn
 
                     while (audioOutput.PlaybackState != PlaybackState.Stopped)
                     {
-                        Thread.Sleep(1000);
+                        Thread.Sleep(20);
                     }
                     audioOutput.Stop();
                     txtMessage.Text = String.Empty;
