@@ -30,11 +30,13 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAttachAudio = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtMessage = new System.Windows.Forms.Label();
             this.lblRecordTimer = new System.Windows.Forms.Label();
             this.lblStop = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PlayButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -65,21 +67,11 @@
             this.btnAttachAudio.UseVisualStyleBackColor = false;
             this.btnAttachAudio.Click += new System.EventHandler(this.btnAttachAudio_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Recording_no_delay;
-            this.pictureBox1.Location = new System.Drawing.Point(112, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(24, 114);
+            this.txtMessage.Location = new System.Drawing.Point(3, 114);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(273, 43);
+            this.txtMessage.Size = new System.Drawing.Size(294, 43);
             this.txtMessage.TabIndex = 5;
             this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -107,6 +99,28 @@
             this.lblStop.Text = "Stop";
             this.lblStop.Click += new System.EventHandler(this.lblStop_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Recording_no_delay;
+            this.pictureBox1.Location = new System.Drawing.Point(112, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 66);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // PlayButton
+            // 
+            this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.PlayButton;
+            this.PlayButton.Location = new System.Drawing.Point(306, 114);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(39, 43);
+            this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayButton.TabIndex = 9;
+            this.PlayButton.TabStop = false;
+            this.PlayButton.Visible = false;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
+            // 
             // frmRecordAudio
             // 
             this.AcceptButton = this.btnAttachAudio;
@@ -121,6 +135,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAttachAudio);
             this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.PlayButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -131,6 +146,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRecordAudio_FormClosing);
             this.Load += new System.EventHandler(this.frmRecordAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,5 +160,6 @@
         private System.Windows.Forms.Label txtMessage;
         private System.Windows.Forms.Label lblRecordTimer;
         private System.Windows.Forms.Label lblStop;
+        private System.Windows.Forms.PictureBox PlayButton;
     }
 }

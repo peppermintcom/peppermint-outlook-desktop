@@ -103,6 +103,16 @@ namespace Peppermint_Outlook_AddIn.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PlayButton {
+            get {
+                object obj = ResourceManager.GetObject("PlayButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Recording_no_delay {
             get {
                 object obj = ResourceManager.GetObject("Recording_no_delay", resourceCulture);

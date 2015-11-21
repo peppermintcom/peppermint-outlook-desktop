@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 
 using NAudio.Wave;
+using System.Threading;
 
 namespace Peppermint_Outlook_AddIn
 {
@@ -25,6 +26,7 @@ namespace Peppermint_Outlook_AddIn
         private string MIC_INSERTED = "Ok The problem seems to be fixed, click on Record when ready";
         private const int MAX_RECORDING_TIME = 10 * 60; // max audio recording time seconds = 10 mins
         private string RECORDING_CONCLUDED = "Recording concluded";
+        private string PLAYING_AUDIO = "Playing recorded message ...";
 
         private bool bRecordingInProgress;
 
@@ -247,6 +249,8 @@ namespace Peppermint_Outlook_AddIn
 
         private void lblStop_Click(object sender, EventArgs e)
         {
+            lblStop.Visible = false;
+            PlayButton.Visible = true;
             // Stop the recording, but do not attach the file, yet
             if (waveIn != null)
             {
@@ -256,6 +260,42 @@ namespace Peppermint_Outlook_AddIn
 
                 pictureBox1.Image = Properties.Resources.Logo;
                 txtMessage.Text = RECORDING_CONCLUDED;
+            }
+        }
+
+        private void PlayButton_Click(object sender, EventArgs e)
+        {
+            txtMessage.Text = PLAYING_AUDIO;
+            lblStop.Visible = false;
+            this.Enabled = false;
+            //Thread.Sleep(500);
+
+            string strFileToPlay = outputFolder + "\\" + outputFilename;
+            
+            // If the recorded file is present then play the attachment
+            if (File.Exists(strFileToPlay))
+            {
+                var soundFile = strFileToPlay;
+                using (var wfr = new WaveFileReader(soundFile))
+                using (WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false })
+                using (var audioOutput = new DirectSoundOut())
+                {
+                    audioOutput.Init(wc);
+
+                    audioOutput.Play();
+
+                    while (audioOutput.PlaybackState != PlaybackState.Stopped)
+                    {
+                        Thread.Sleep(1000);
+                    }
+                    audioOutput.Stop();
+                    txtMessage.Text = String.Empty;
+                    this.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
