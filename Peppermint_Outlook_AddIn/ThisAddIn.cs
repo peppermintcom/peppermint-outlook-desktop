@@ -22,6 +22,7 @@ namespace Peppermint_Outlook_AddIn
         public static string PEPPERMINT_NEW_EMAIL_HTML_BODY = "<FONT>Here's my message<BR> Reply via <a href=Peppermint.com>Peppermint.com</a><BR><BR></FONT>";
         public static string PEPPERMINT_REPLY_MAIL_HTML_BODY = "<FONT>I sent you an audio reply with <a href=Peppermint.com>Peppermint.com</a><BR><BR></FONT>";
         public static string PEPPERMINT_WEBSITE = "Peppermint.com";
+        public static string PEPPERMINT_SUPPORT_EMAIL = "support@peppermint.com";
 
         public static string PEPPERMINT_NEW_MAIL_SUBJECT = "I sent you a voicemail message";
         

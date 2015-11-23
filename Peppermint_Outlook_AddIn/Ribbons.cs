@@ -133,6 +133,16 @@ namespace Peppermint_Outlook_AddIn
             return Properties.Resources.Logo;
         }
 
+        public void btnFeedback_Click(Office.IRibbonControl control)
+        {
+            Outlook.MailItem mi = ThisAddIn.outlookApp.CreateItem(Outlook.OlItemType.olMailItem);
+
+            mi.Subject = "Feedback : Peppermint Outlook Addin";
+            mi.Recipients.Add(ThisAddIn.PEPPERMINT_SUPPORT_EMAIL);
+
+            mi.Display();
+        }
+
         #endregion
 
         #region Helpers

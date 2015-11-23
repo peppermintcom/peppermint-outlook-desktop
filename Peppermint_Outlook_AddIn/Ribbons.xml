@@ -7,6 +7,12 @@
               <button id="btnRecordMessageNewMail" onAction="btnRecordMessageNewMail_Click" label="Add Audio Message" getImage="btnRecordMessage_getImage" size="large" 
                       screentip="Start an audio recording" 
                       supertip="Add an audio message when responding to e-mails or while composing a new e-mail."/>
+              <separator/>
+              <separator/>
+              <separator/>
+              <button id="btnFeedback1" label="Feedback" onAction="btnFeedback_Click" 
+                      screentip="Please provide feedback"
+                      supertip="How can we improve this addin ? "/>
             </group>
           </tab>
           <tab idMso="TabMail">
@@ -21,6 +27,12 @@
                 <button id="btnRecordMessage" onAction="btnRecordMessage_Click" label="Reply via Peppermint" getImage="btnRecordMessage_getImage" size="large" 
                         screentip="Start an audio reply" 
                         supertip="Click to reply to the email with an audio message."/>
+                <separator/>
+                <separator/>
+                <separator/>
+                <button id="btnFeedback2" label="Feedback" onAction="btnFeedback_Click"
+                      screentip="Please provide feedback"
+                      supertip="How can we improve this addin ? "/>
             </group>
             </tab>
         </tabs>
