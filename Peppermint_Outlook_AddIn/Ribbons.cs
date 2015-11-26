@@ -137,8 +137,33 @@ namespace Peppermint_Outlook_AddIn
         {
             Outlook.MailItem mi = ThisAddIn.outlookApp.CreateItem(Outlook.OlItemType.olMailItem);
 
-            mi.Subject = "Feedback : Peppermint Outlook Addin";
+            mi.Subject = "Feedback : Peppermint Outlook AddIn";
             mi.Recipients.Add(ThisAddIn.PEPPERMINT_SUPPORT_EMAIL);
+
+            string strOSBitness = string.Empty;
+            string strOfficeBitness = string.Empty;
+
+            if (Environment.Is64BitOperatingSystem == true)
+            {
+                strOSBitness = "64-bit";
+            }
+            else
+            {
+                strOSBitness = "32-bit";
+            }
+
+            if (Environment.Is64BitProcess == true)
+            {
+                strOfficeBitness = "64-bit";
+            }
+            else
+            {
+                strOfficeBitness = "32-bit";
+            }
+
+            mi.Body += "\r\n\r\n\r\n" + "O.S. version : " + Environment.OSVersion.ToString() + "\t" + strOSBitness +
+                                    "\r\nOutlook version : " + ThisAddIn.outlookApp.Version + "\t" + strOfficeBitness +
+                                     "\r\nPeppermint AddIn version : ";
 
             mi.Display();
         }
