@@ -161,9 +161,11 @@ namespace Peppermint_Outlook_AddIn
                 strOfficeBitness = "32-bit";
             }
 
+            string AddinVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
             mi.Body += "\r\n\r\n\r\n" + "O.S. version : " + Environment.OSVersion.ToString() + "\t" + strOSBitness +
                                     "\r\nOutlook version : " + ThisAddIn.outlookApp.Version + "\t" + strOfficeBitness +
-                                     "\r\nPeppermint AddIn version : ";
+                                     "\r\nPeppermint AddIn version : " + AddinVersion;
 
             mi.Display();
         }
