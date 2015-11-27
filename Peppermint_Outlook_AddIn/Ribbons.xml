@@ -11,7 +11,9 @@
               <button id="btnFeedback1" label="Feedback" onAction="btnFeedback_Click" 
                       screentip="Please provide feedback"
                       supertip="How can we improve this addin ? "/>
-            </group>
+              <button id="btnAboutAddin1" label="About..." onAction="btnAbout_Click" 
+                      screentip="About Peppermint Outlook AddIn"></button>
+          </group>
           </tab>
           <tab idMso="TabMail">
             <group id="group2" insertBeforeMso="GroupMailDelete" label="Peppermint">
@@ -29,7 +31,9 @@
                 <button id="btnFeedback2" label="Feedback" onAction="btnFeedback_Click"
                       screentip="Please provide feedback"
                       supertip="How can we improve this addin ? "/>
-            </group>
+                <button id="btnAboutAddin2" label="About..." onAction="btnAbout_Click" 
+                      screentip="About Peppermint Outlook AddIn"></button>
+          </group>
             </tab>
         </tabs>
     </ribbon>

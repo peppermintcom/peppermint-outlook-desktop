@@ -170,6 +170,12 @@ namespace Peppermint_Outlook_AddIn
             mi.Display();
         }
 
+        public void btnAbout_Click(Office.IRibbonControl control)
+        {
+            frmAbout myAboutFrom = new frmAbout();
+            myAboutFrom.ShowDialog();
+        }
+
         #endregion
 
         #region Helpers
