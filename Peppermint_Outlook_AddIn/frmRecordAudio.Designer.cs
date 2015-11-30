@@ -35,6 +35,7 @@
             this.lblStop = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
+            this.txtTranscribedText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +122,15 @@
             this.PlayButton.Visible = false;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
+            // txtTranscribedText
+            // 
+            this.txtTranscribedText.Location = new System.Drawing.Point(6, 209);
+            this.txtTranscribedText.Multiline = true;
+            this.txtTranscribedText.Name = "txtTranscribedText";
+            this.txtTranscribedText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtTranscribedText.Size = new System.Drawing.Size(342, 67);
+            this.txtTranscribedText.TabIndex = 10;
+            // 
             // frmRecordAudio
             // 
             this.AcceptButton = this.btnAttachAudio;
@@ -128,7 +138,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(356, 214);
+            this.ClientSize = new System.Drawing.Size(354, 288);
+            this.Controls.Add(this.txtTranscribedText);
             this.Controls.Add(this.lblStop);
             this.Controls.Add(this.lblRecordTimer);
             this.Controls.Add(this.txtMessage);
@@ -161,5 +172,6 @@
         private System.Windows.Forms.Label lblRecordTimer;
         private System.Windows.Forms.Label lblStop;
         private System.Windows.Forms.PictureBox PlayButton;
+        private System.Windows.Forms.TextBox txtTranscribedText;
     }
 }

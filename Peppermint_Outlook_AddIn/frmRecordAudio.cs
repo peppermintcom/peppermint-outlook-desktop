@@ -13,6 +13,8 @@ using System.Runtime.InteropServices;
 using NAudio.Wave;
 using System.Threading;
 
+using System.Speech.Recognition;
+
 namespace Peppermint_Outlook_AddIn
 {
     public partial class frmRecordAudio : Form
@@ -140,6 +142,28 @@ namespace Peppermint_Outlook_AddIn
                 btnAttachAudio.Enabled = false;
             }
 
+            SpeechRecognitionEngine _recognizer = new SpeechRecognitionEngine();
+
+            try
+            {
+                _recognizer.LoadGrammar(new DictationGrammar());
+
+                _recognizer.SpeechRecognized +=_recognizer_SpeechRecognized;
+
+                _recognizer.SetInputToDefaultAudioDevice(); // set the input of the speech recognizer to the default audio device
+                _recognizer.RecognizeAsync(RecognizeMode.Multiple); // recognize speech asynchronous
+            }
+
+            catch (InvalidOperationException exception)
+            {
+                string msg = String.Format("Could not recognize input from default aduio device. Is a microphone or sound card available?\r\n{0} - {1}.", exception.Source, exception.Message);
+                MessageBox.Show(msg);
+            }
+        }
+
+        void _recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            txtTranscribedText.Text += e.Result.Text + " ";
         }
 
         private void frmRecordAudio_Load(object sender, EventArgs e)
