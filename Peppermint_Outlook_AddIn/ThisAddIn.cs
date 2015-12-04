@@ -25,7 +25,8 @@ namespace Peppermint_Outlook_AddIn
         public static string PEPPERMINT_SUPPORT_EMAIL = "support@peppermint.com";
 
         public static string PEPPERMINT_NEW_MAIL_SUBJECT = "I sent you a voicemail message";
-        
+        public static string PEPPERMINT_TRANSCRIBED_TEXT_HEADER = "<BR><BR> -- Automatic Transcription Below -- <BR><BR>";
+        public static string PEPPERMINT_TRANSCRIBED_AUDIO;
 
         public static bool bPeppermintMessageInserted;
 
@@ -110,6 +111,11 @@ namespace Peppermint_Outlook_AddIn
                 // Attach audio recording file
                 if ((ThisAddIn.theCurrentMailItem != null) && (File.Exists(ThisAddIn.AttachmentFilePath)))
                     ThisAddIn.theCurrentMailItem.Attachments.Add(ThisAddIn.AttachmentFilePath);
+
+                if(!String.IsNullOrEmpty(ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO))
+                {
+                    ThisAddIn.theCurrentMailItem.HTMLBody += ThisAddIn.PEPPERMINT_TRANSCRIBED_TEXT_HEADER + ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO;
+                }
             }
 
             return dr;

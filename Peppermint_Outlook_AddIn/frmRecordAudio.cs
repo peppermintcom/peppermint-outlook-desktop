@@ -32,6 +32,8 @@ namespace Peppermint_Outlook_AddIn
 
         private bool bRecordingInProgress;
 
+        private SpeechRecognitionEngine _recognizer;
+
         // WIN API
         private const int WM_DEVICECHANGE = 0x0219;
         
@@ -111,6 +113,7 @@ namespace Peppermint_Outlook_AddIn
         {
             bRecordingInProgress = true;
             lblRecordTimer.Visible = true;
+            ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO = String.Empty;
 
             if (waveIn == null)
             {
@@ -142,7 +145,7 @@ namespace Peppermint_Outlook_AddIn
                 btnAttachAudio.Enabled = false;
             }
 
-            SpeechRecognitionEngine _recognizer = new SpeechRecognitionEngine();
+            _recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
 
             try
             {
@@ -164,6 +167,7 @@ namespace Peppermint_Outlook_AddIn
         void _recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             txtTranscribedText.Text += e.Result.Text + " ";
+            ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO = txtTranscribedText.Text;
         }
 
         private void frmRecordAudio_Load(object sender, EventArgs e)
