@@ -81,7 +81,7 @@
             this.lblRecordTimer.AutoSize = true;
             this.lblRecordTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecordTimer.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblRecordTimer.Location = new System.Drawing.Point(143, 89);
+            this.lblRecordTimer.Location = new System.Drawing.Point(162, 89);
             this.lblRecordTimer.Name = "lblRecordTimer";
             this.lblRecordTimer.Size = new System.Drawing.Size(36, 16);
             this.lblRecordTimer.TabIndex = 6;
@@ -103,7 +103,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Recording_no_delay;
-            this.pictureBox1.Location = new System.Drawing.Point(112, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(131, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

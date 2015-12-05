@@ -166,7 +166,7 @@ namespace Peppermint_Outlook_AddIn
 
         void _recognizer_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            txtTranscribedText.Text += e.Result.Text + " ";
+            txtTranscribedText.AppendText(e.Result.Text + " ");
             ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO = txtTranscribedText.Text;
         }
 

@@ -120,12 +120,19 @@ namespace Peppermint_Outlook_AddIn
                 ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
 
                 ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
-                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
                 ThisAddIn.bPeppermintMessageInserted = true;
 
                 // Attach audio recording file
                 if ((ThisAddIn.theCurrentMailItem != null) && (File.Exists(ThisAddIn.AttachmentFilePath)))
                     ThisAddIn.theCurrentMailItem.Attachments.Add(ThisAddIn.AttachmentFilePath);
+
+                if (!String.IsNullOrEmpty(ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO))
+                {
+                    ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_TRANSCRIBED_TEXT_HEADER +
+                                                            ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO +
+                                                            ThisAddIn.theCurrentMailItem.HTMLBody;
+                }
+                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
             }
         }
         public Bitmap btnRecordMessage_getImage(Office.IRibbonControl control)
