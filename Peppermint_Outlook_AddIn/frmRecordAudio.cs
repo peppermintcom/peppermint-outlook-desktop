@@ -159,7 +159,7 @@ namespace Peppermint_Outlook_AddIn
 
             catch (InvalidOperationException exception)
             {
-                string msg = String.Format("Could not recognize input from default aduio device. Is a microphone or sound card available?\r\n{0} - {1}.", exception.Source, exception.Message);
+                string msg = String.Format("Could not recognize input from default audio device. Is a microphone or sound card available?\r\n{0} - {1}.", exception.Source, exception.Message);
                 MessageBox.Show(msg);
             }
         }

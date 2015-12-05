@@ -2620,8 +2620,8 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
+		<row><td>_300E4690_659E_400D_9E58_A1A5371829D2_</td><td>Microsoft .NET Framework 4.5 Web .prq</td><td/><td>2</td><td/></row>
 		<row><td>_5CB9F50E_4402_4CE2_A50B_A18836CBFF70_</td><td>Microsoft VSTO 2010 Runtime.prq</td><td/><td>2</td><td/></row>
-		<row><td>_BE9B2F4E_2E92_4EC0_9A06_E4EA4C45BE45_</td><td>Microsoft .NET Framework 4.5 Web.prq</td><td/><td>2</td><td/></row>
 		<row><td>_F2810CE2_6283_4B6D_A4FD_F01D28D02B41_</td><td>Windows Installer 4.5 for Windows XP SP2 and later (x86).prq</td><td/><td>2</td><td/></row>
 	</table>
 
@@ -4443,7 +4443,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_0106669D110E221FA1D029945116EE6E</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Description</td><td>Peppermint_Outlook_AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
+		<row><td>_0106669D110E221FA1D029945116EE6E</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Description</td><td>Send and reply to email with audio messages</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_2DE834B537E4AB375EE51BCAB9FE4905</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Manifest</td><td>file://[INSTALLDIR]OutlookAddin\Peppermint_Outlook_Addin.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_78886A6BE144DAA80C26E8DA02D260A4</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_AEF1FD2E03F0831D65D782468313C191</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>FriendlyName</td><td>Peppermint Outlook AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
