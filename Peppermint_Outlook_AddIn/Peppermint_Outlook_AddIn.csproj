@@ -39,10 +39,10 @@
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>Peppermint Outlook AddIn</ProductName>
+    <ProductName>Peppermint Outlook Add-in</ProductName>
     <PublisherName />
     <SupportUrl />
-    <FriendlyName>Peppermint Outlook AddIn</FriendlyName>
+    <FriendlyName>Peppermint Outlook Add-in</FriendlyName>
     <OfficeApplicationDescription>Send and reply to email with audio messages</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>

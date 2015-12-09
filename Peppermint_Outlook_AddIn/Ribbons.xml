@@ -10,9 +10,9 @@
               <separator id="separator1"/>
               <button id="btnFeedback1" label="Feedback" onAction="btnFeedback_Click" 
                       screentip="Please provide feedback"
-                      supertip="How can we improve this addin ? "/>
+                      supertip="How can we improve this Add-in? "/>
               <button id="btnAboutAddin1" label="About..." onAction="btnAbout_Click" 
-                      screentip="About Peppermint Outlook AddIn"></button>
+                      screentip="About Peppermint Outlook Add-in"></button>
           </group>
           </tab>
           <tab idMso="TabMail">
@@ -30,9 +30,9 @@
                 <separator id="seperator2"/>
                 <button id="btnFeedback2" label="Feedback" onAction="btnFeedback_Click"
                       screentip="Please provide feedback"
-                      supertip="How can we improve this addin ? "/>
+                      supertip="How can we improve this Add-in? "/>
                 <button id="btnAboutAddin2" label="About..." onAction="btnAbout_Click" 
-                      screentip="About Peppermint Outlook AddIn"></button>
+                      screentip="About Peppermint Outlook Add-in"></button>
           </group>
             </tab>
         </tabs>
