@@ -2620,7 +2620,7 @@
 		<col def="I2">Order</col>
 		<col def="I2">ISSetupLocation</col>
 		<col def="S255">ISReleaseFlags</col>
-		<row><td>_300E4690_659E_400D_9E58_A1A5371829D2_</td><td>Microsoft .NET Framework 4.5 Web .prq</td><td/><td>2</td><td/></row>
+		<row><td>_018C55D8_802D_42F6_AB4F_319FAFF1BD1A_</td><td>Microsoft .NET Framework 4.5 Web.prq</td><td/><td>2</td><td/></row>
 		<row><td>_5CB9F50E_4402_4CE2_A50B_A18836CBFF70_</td><td>Microsoft VSTO 2010 Runtime.prq</td><td/><td>2</td><td/></row>
 		<row><td>_F2810CE2_6283_4B6D_A4FD_F01D28D02B41_</td><td>Windows Installer 4.5 for Windows XP SP2 and later (x86).prq</td><td/><td>2</td><td/></row>
 	</table>
@@ -4375,8 +4375,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{8C38C25B-1456-4A16-87D1-BD83F842F915}</td><td/></row>
-		<row><td>ProductName</td><td>Peppermint Outlook Addin</td><td/></row>
-		<row><td>ProductVersion</td><td>1.40.0000</td><td/></row>
+		<row><td>ProductName</td><td>Peppermint Outlook Add-in</td><td/></row>
+		<row><td>ProductVersion</td><td>1.50.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4446,7 +4446,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>_0106669D110E221FA1D029945116EE6E</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Description</td><td>Send and reply to email with audio messages</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_2DE834B537E4AB375EE51BCAB9FE4905</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>Manifest</td><td>file://[INSTALLDIR]OutlookAddin\Peppermint_Outlook_Addin.vsto|vstolocal</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 		<row><td>_78886A6BE144DAA80C26E8DA02D260A4</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>LoadBehavior</td><td>#3</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
-		<row><td>_AEF1FD2E03F0831D65D782468313C191</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>FriendlyName</td><td>Peppermint Outlook AddIn</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
+		<row><td>_AEF1FD2E03F0831D65D782468313C191</td><td>1</td><td>Software\Microsoft\Office\Outlook\Addins\Peppermint.Outlook AddIn</td><td>FriendlyName</td><td>Peppermint Outlook Add-in</td><td>ISX_DEFAULTCOMPONENT3</td><td/></row>
 	</table>
 
 	<table name="RemoveFile">
