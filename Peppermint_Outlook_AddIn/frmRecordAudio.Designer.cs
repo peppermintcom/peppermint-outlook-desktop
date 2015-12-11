@@ -102,7 +102,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Recording_no_delay;
-            this.pictureBox1.Location = new System.Drawing.Point(127, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(127, 13);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,7 +112,7 @@
             // PlayButton
             // 
             this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.play_2x;
-            this.PlayButton.Location = new System.Drawing.Point(309, 29);
+            this.PlayButton.Location = new System.Drawing.Point(308, 31);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(39, 43);
             this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
