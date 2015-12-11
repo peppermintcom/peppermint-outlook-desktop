@@ -30,9 +30,9 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAttachAudio = new System.Windows.Forms.Button();
-            this.txtMessage = new System.Windows.Forms.Label();
             this.lblRecordTimer = new System.Windows.Forms.Label();
             this.lblStop = new System.Windows.Forms.Label();
+            this.txtMessage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -67,14 +67,6 @@
             this.btnAttachAudio.UseVisualStyleBackColor = false;
             this.btnAttachAudio.Click += new System.EventHandler(this.btnAttachAudio_Click);
             // 
-            // txtMessage
-            // 
-            this.txtMessage.Location = new System.Drawing.Point(6, 114);
-            this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(338, 43);
-            this.txtMessage.TabIndex = 5;
-            this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblRecordTimer
             // 
             this.lblRecordTimer.AutoSize = true;
@@ -99,10 +91,18 @@
             this.lblStop.Text = "Stop";
             this.lblStop.Click += new System.EventHandler(this.lblStop_Click);
             // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(6, 114);
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(338, 43);
+            this.txtMessage.TabIndex = 5;
+            this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Recording_no_delay;
-            this.pictureBox1.Location = new System.Drawing.Point(131, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(127, 7);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 66);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -112,10 +112,10 @@
             // PlayButton
             // 
             this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.play_2x;
-            this.PlayButton.Location = new System.Drawing.Point(305, 30);
+            this.PlayButton.Location = new System.Drawing.Point(309, 29);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(39, 43);
-            this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PlayButton.TabIndex = 9;
             this.PlayButton.TabStop = false;
             this.PlayButton.Visible = false;

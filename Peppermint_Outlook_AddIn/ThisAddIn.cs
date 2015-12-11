@@ -115,7 +115,7 @@ namespace Peppermint_Outlook_AddIn
                 if(!String.IsNullOrEmpty(ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO))
                 {
                     ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_TRANSCRIBED_TEXT_HEADER + 
-                                                            ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO + 
+                                                            ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO + "<BR>" +
                                                             ThisAddIn.theCurrentMailItem.HTMLBody + "<BR><BR>";
                 }
             }
