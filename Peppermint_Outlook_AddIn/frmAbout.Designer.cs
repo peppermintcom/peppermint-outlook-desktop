@@ -55,7 +55,7 @@
             this.label1.Location = new System.Drawing.Point(109, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 5;
             this.label1.Text = "Peppermint Outlook Add-in";
             // 
             // labelVersion
@@ -64,14 +64,14 @@
             this.labelVersion.Location = new System.Drawing.Point(109, 33);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(42, 13);
-            this.labelVersion.TabIndex = 1;
+            this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Version";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(25, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 40);
             this.pictureBox1.TabIndex = 3;
@@ -83,20 +83,19 @@
             this.btnOK.Location = new System.Drawing.Point(224, 140);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 5;
+            this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(25, 140);
+            this.btnCancel.Location = new System.Drawing.Point(-5, 185);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Visible = false;
             // 
             // lblWebSite
             // 
@@ -105,7 +104,7 @@
             this.lblWebSite.Location = new System.Drawing.Point(109, 57);
             this.lblWebSite.Name = "lblWebSite";
             this.lblWebSite.Size = new System.Drawing.Size(83, 13);
-            this.lblWebSite.TabIndex = 2;
+            this.lblWebSite.TabIndex = 1;
             this.lblWebSite.Text = "Peppermint.com";
             this.lblWebSite.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -115,7 +114,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(311, 175);
+            this.ClientSize = new System.Drawing.Size(311, 169);
             this.Controls.Add(this.lblWebSite);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);

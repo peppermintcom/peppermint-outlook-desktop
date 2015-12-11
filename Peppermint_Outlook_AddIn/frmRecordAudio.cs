@@ -291,6 +291,7 @@ namespace Peppermint_Outlook_AddIn
                 pictureBox1.Image = Properties.Resources.Logo;
                 txtMessage.Text = RECORDING_CONCLUDED;
             }
+            _recognizer.SpeechRecognized -= _recognizer_SpeechRecognized;
         }
 
         private void PlayButton_Click(object sender, EventArgs e)

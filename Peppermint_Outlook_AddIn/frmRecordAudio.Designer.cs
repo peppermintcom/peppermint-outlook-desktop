@@ -87,7 +87,7 @@
             this.lblStop.Location = new System.Drawing.Point(304, 83);
             this.lblStop.Name = "lblStop";
             this.lblStop.Size = new System.Drawing.Size(40, 16);
-            this.lblStop.TabIndex = 7;
+            this.lblStop.TabIndex = 2;
             this.lblStop.Text = "Stop";
             this.lblStop.Click += new System.EventHandler(this.lblStop_Click);
             // 
@@ -96,7 +96,7 @@
             this.txtMessage.Location = new System.Drawing.Point(6, 114);
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(338, 43);
-            this.txtMessage.TabIndex = 5;
+            this.txtMessage.TabIndex = 0;
             this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1

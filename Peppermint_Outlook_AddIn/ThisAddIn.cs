@@ -7,6 +7,7 @@ using Outlook = Microsoft.Office.Interop.Outlook;
 using Office = Microsoft.Office.Core;
 using System.Windows.Forms;
 using System.IO;
+using System.Management;
 
 
 namespace Peppermint_Outlook_AddIn
@@ -121,6 +122,18 @@ namespace Peppermint_Outlook_AddIn
             }
 
             return dr;
+        }
+
+        public static string GetOSFriendlyName()
+        {
+            string result = string.Empty;
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT Caption FROM Win32_OperatingSystem");
+            foreach (ManagementObject os in searcher.Get())
+            {
+                result = os["Caption"].ToString();
+                break;
+            }
+            return result;
         }
 
         protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
