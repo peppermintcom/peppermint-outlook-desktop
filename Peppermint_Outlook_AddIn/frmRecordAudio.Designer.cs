@@ -35,7 +35,6 @@
             this.lblStop = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
-            this.txtTranscribedText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +45,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(3, 171);
+            this.btnCancel.Location = new System.Drawing.Point(6, 171);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(169, 32);
             this.btnCancel.TabIndex = 0;
@@ -70,9 +69,9 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(3, 114);
+            this.txtMessage.Location = new System.Drawing.Point(6, 114);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(294, 43);
+            this.txtMessage.Size = new System.Drawing.Size(338, 43);
             this.txtMessage.TabIndex = 5;
             this.txtMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -81,11 +80,11 @@
             this.lblRecordTimer.AutoSize = true;
             this.lblRecordTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecordTimer.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblRecordTimer.Location = new System.Drawing.Point(162, 89);
+            this.lblRecordTimer.Location = new System.Drawing.Point(156, 88);
             this.lblRecordTimer.Name = "lblRecordTimer";
-            this.lblRecordTimer.Size = new System.Drawing.Size(36, 16);
+            this.lblRecordTimer.Size = new System.Drawing.Size(44, 16);
             this.lblRecordTimer.TabIndex = 6;
-            this.lblRecordTimer.Text = "0:00";
+            this.lblRecordTimer.Text = "80:00";
             this.lblRecordTimer.Visible = false;
             // 
             // lblStop
@@ -93,7 +92,7 @@
             this.lblStop.AutoSize = true;
             this.lblStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStop.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblStop.Location = new System.Drawing.Point(303, 127);
+            this.lblStop.Location = new System.Drawing.Point(304, 83);
             this.lblStop.Name = "lblStop";
             this.lblStop.Size = new System.Drawing.Size(40, 16);
             this.lblStop.TabIndex = 7;
@@ -112,8 +111,8 @@
             // 
             // PlayButton
             // 
-            this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.PlayButton;
-            this.PlayButton.Location = new System.Drawing.Point(306, 114);
+            this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.play_2x;
+            this.PlayButton.Location = new System.Drawing.Point(305, 30);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(39, 43);
             this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -122,15 +121,6 @@
             this.PlayButton.Visible = false;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
-            // txtTranscribedText
-            // 
-            this.txtTranscribedText.Location = new System.Drawing.Point(6, 209);
-            this.txtTranscribedText.Multiline = true;
-            this.txtTranscribedText.Name = "txtTranscribedText";
-            this.txtTranscribedText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtTranscribedText.Size = new System.Drawing.Size(342, 67);
-            this.txtTranscribedText.TabIndex = 10;
-            // 
             // frmRecordAudio
             // 
             this.AcceptButton = this.btnAttachAudio;
@@ -138,8 +128,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(354, 288);
-            this.Controls.Add(this.txtTranscribedText);
+            this.ClientSize = new System.Drawing.Size(354, 214);
             this.Controls.Add(this.lblStop);
             this.Controls.Add(this.lblRecordTimer);
             this.Controls.Add(this.txtMessage);
@@ -172,6 +161,5 @@
         private System.Windows.Forms.Label lblRecordTimer;
         private System.Windows.Forms.Label lblStop;
         private System.Windows.Forms.PictureBox PlayButton;
-        private System.Windows.Forms.TextBox txtTranscribedText;
     }
 }

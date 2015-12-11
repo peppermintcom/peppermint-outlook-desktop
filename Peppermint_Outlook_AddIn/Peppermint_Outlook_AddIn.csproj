@@ -264,6 +264,9 @@
   <ItemGroup>
     <None Include="Resources\PlayButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play%402x.png" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
