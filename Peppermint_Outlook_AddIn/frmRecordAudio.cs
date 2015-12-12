@@ -34,6 +34,7 @@ namespace Peppermint_Outlook_AddIn
 
         private SpeechRecognitionEngine _recognizer;
 
+        DirectSoundOut audioOutput;
         // WIN API
         private const int WM_DEVICECHANGE = 0x0219;
         
@@ -281,6 +282,9 @@ namespace Peppermint_Outlook_AddIn
         {
             lblStop.Visible = false;
             PlayButton.Visible = true;
+            //ProgressBar.Visible = true;
+            PauseButton.Visible = true;
+
             // Stop the recording, but do not attach the file, yet
             if (waveIn != null)
             {
@@ -303,31 +307,53 @@ namespace Peppermint_Outlook_AddIn
 
             string strFileToPlay = outputFolder + "\\" + outputFilename;
             
-            // If the recorded file is present then play the attachment
-            if (File.Exists(strFileToPlay))
+
+            if (audioOutput != null ) // Playback is already in progress i.e. re-play after playback has been paused
             {
-                var soundFile = strFileToPlay;
-                using (var wfr = new WaveFileReader(soundFile))
-                using (WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false })
-                using (var audioOutput = new DirectSoundOut())
+                audioOutput.Play();
+
+                while (audioOutput.PlaybackState != PlaybackState.Stopped)
                 {
-                    audioOutput.Init(wc);
-
-                    audioOutput.Play();
-
-                    while (audioOutput.PlaybackState != PlaybackState.Stopped)
+                    Thread.Sleep(20);
+                }
+                audioOutput.Stop();
+            }
+            else // new audio recording playback from beginning
+            {
+                // If the recorded file is present then play the attachment
+                if (File.Exists(strFileToPlay))
+                {
+                    var soundFile = strFileToPlay;
+                    using (var wfr = new WaveFileReader(soundFile))
+                    using (WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false })
+                    using (audioOutput = new DirectSoundOut())
                     {
-                        Thread.Sleep(20);
+                        audioOutput.Init(wc);
+
+                        audioOutput.Play();
+
+                        while (audioOutput.PlaybackState != PlaybackState.Stopped)
+                        {
+                            Thread.Sleep(20);
+                        }
+                        audioOutput.Stop();
+                        audioOutput.Dispose();
+                        audioOutput = null;
+                        txtMessage.Text = String.Empty;
+                        this.Enabled = true;
                     }
-                    audioOutput.Stop();
-                    txtMessage.Text = String.Empty;
-                    this.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        }
+
+        private void PauseButton_Click(object sender, EventArgs e)
+        {
+            if (audioOutput != null)
+                audioOutput.Pause();
         }
     }
 }

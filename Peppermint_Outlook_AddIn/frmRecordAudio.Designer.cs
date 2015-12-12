@@ -35,8 +35,11 @@
             this.txtMessage = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
+            this.PauseButton = new System.Windows.Forms.PictureBox();
+            this.ProgressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseButton)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -45,7 +48,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(6, 171);
+            this.btnCancel.Location = new System.Drawing.Point(6, 202);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(169, 32);
             this.btnCancel.TabIndex = 0;
@@ -59,7 +62,7 @@
             this.btnAttachAudio.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAttachAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttachAudio.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAttachAudio.Location = new System.Drawing.Point(179, 171);
+            this.btnAttachAudio.Location = new System.Drawing.Point(179, 202);
             this.btnAttachAudio.Name = "btnAttachAudio";
             this.btnAttachAudio.Size = new System.Drawing.Size(169, 32);
             this.btnAttachAudio.TabIndex = 1;
@@ -93,7 +96,7 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(6, 114);
+            this.txtMessage.Location = new System.Drawing.Point(6, 145);
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(338, 43);
             this.txtMessage.TabIndex = 0;
@@ -112,14 +115,37 @@
             // PlayButton
             // 
             this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.play_2x;
-            this.PlayButton.Location = new System.Drawing.Point(308, 31);
+            this.PlayButton.Location = new System.Drawing.Point(40, 99);
             this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(39, 43);
-            this.PlayButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PlayButton.Size = new System.Drawing.Size(25, 32);
             this.PlayButton.TabIndex = 9;
             this.PlayButton.TabStop = false;
             this.PlayButton.Visible = false;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
+            // 
+            // PauseButton
+            // 
+            this.PauseButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.pause_2x;
+            this.PauseButton.Location = new System.Drawing.Point(9, 99);
+            this.PauseButton.Name = "PauseButton";
+            this.PauseButton.Size = new System.Drawing.Size(25, 32);
+            this.PauseButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PauseButton.TabIndex = 10;
+            this.PauseButton.TabStop = false;
+            this.PauseButton.Visible = false;
+            this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
+            // 
+            // ProgressBar
+            // 
+            this.ProgressBar.BackColor = System.Drawing.Color.DarkRed;
+            this.ProgressBar.ForeColor = System.Drawing.Color.Black;
+            this.ProgressBar.Location = new System.Drawing.Point(74, 107);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(261, 11);
+            this.ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.ProgressBar.TabIndex = 11;
+            this.ProgressBar.Value = 5;
+            this.ProgressBar.Visible = false;
             // 
             // frmRecordAudio
             // 
@@ -128,7 +154,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(354, 214);
+            this.ClientSize = new System.Drawing.Size(354, 272);
+            this.Controls.Add(this.ProgressBar);
+            this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.lblStop);
             this.Controls.Add(this.lblRecordTimer);
             this.Controls.Add(this.txtMessage);
@@ -147,6 +175,7 @@
             this.Load += new System.EventHandler(this.frmRecordAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PauseButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +190,7 @@
         private System.Windows.Forms.Label lblRecordTimer;
         private System.Windows.Forms.Label lblStop;
         private System.Windows.Forms.PictureBox PlayButton;
+        private System.Windows.Forms.PictureBox PauseButton;
+        private System.Windows.Forms.ProgressBar ProgressBar;
     }
 }
