@@ -46,14 +46,14 @@ namespace Peppermint_Outlook_AddIn
         
         // Device has changed
         private const int DBT_DEVNODES_CHANGED = 0x0007;
-        
+
         protected override void WndProc(ref Message m)
         {
             if (bRecordingInProgress == true)
             {
                 // Don't process any device change events now. mic removal will anyway will be catched as an exception while recording.
             }
-            else 
+            else
             {
                 if (m.Msg == WM_DEVICECHANGE)
                 {
@@ -295,7 +295,8 @@ namespace Peppermint_Outlook_AddIn
                 pictureBox1.Image = Properties.Resources.Logo;
                 txtMessage.Text = RECORDING_CONCLUDED;
             }
-            _recognizer.SpeechRecognized -= _recognizer_SpeechRecognized;
+            if ( _recognizer != null )
+                _recognizer.SpeechRecognized -= _recognizer_SpeechRecognized;
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
@@ -303,50 +304,32 @@ namespace Peppermint_Outlook_AddIn
             txtMessage.Text = PLAYING_AUDIO;
             lblStop.Visible = false;
             this.Enabled = false;
-            Thread.Sleep(50);
 
             string strFileToPlay = outputFolder + "\\" + outputFilename;
-            
 
+            
             if (audioOutput != null ) // Playback is already in progress i.e. re-play after playback has been paused
             {
                 audioOutput.Play();
-
-                while (audioOutput.PlaybackState != PlaybackState.Stopped)
-                {
-                    Thread.Sleep(20);
-                }
-                audioOutput.Stop();
+                return;
             }
-            else // new audio recording playback from beginning
+            
+            // If the recorded file is present then play the attachment
+            if (File.Exists(strFileToPlay))
             {
-                // If the recorded file is present then play the attachment
-                if (File.Exists(strFileToPlay))
+                var soundFile = strFileToPlay;
+                var wfr = new WaveFileReader(soundFile);
+                WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false };
+                audioOutput = new DirectSoundOut();
                 {
-                    var soundFile = strFileToPlay;
-                    using (var wfr = new WaveFileReader(soundFile))
-                    using (WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false })
-                    using (audioOutput = new DirectSoundOut())
-                    {
-                        audioOutput.Init(wc);
+                    audioOutput.Init(wc);
 
-                        audioOutput.Play();
-
-                        while (audioOutput.PlaybackState != PlaybackState.Stopped)
-                        {
-                            Thread.Sleep(20);
-                        }
-                        audioOutput.Stop();
-                        audioOutput.Dispose();
-                        audioOutput = null;
-                        txtMessage.Text = String.Empty;
-                        this.Enabled = true;
-                    }
+                    audioOutput.Play();
                 }
-                else
-                {
-                    MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
