@@ -303,7 +303,7 @@ namespace Peppermint_Outlook_AddIn
         {
             txtMessage.Text = PLAYING_AUDIO;
             lblStop.Visible = false;
-            this.Enabled = false;
+            //this.Enabled = false;
 
             string strFileToPlay = outputFolder + "\\" + outputFilename;
 
@@ -322,6 +322,7 @@ namespace Peppermint_Outlook_AddIn
                 WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false };
                 audioOutput = new DirectSoundOut();
                 {
+                    audioOutput.PlaybackStopped += audioOutput_PlaybackStopped;
                     audioOutput.Init(wc);
 
                     audioOutput.Play();
@@ -331,6 +332,13 @@ namespace Peppermint_Outlook_AddIn
             {
                 MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.Enabled = true;
+        }
+
+        void audioOutput_PlaybackStopped(object sender, StoppedEventArgs e)
+        {
+            audioOutput.Dispose();
+            audioOutput = null;
         }
 
         private void PauseButton_Click(object sender, EventArgs e)
