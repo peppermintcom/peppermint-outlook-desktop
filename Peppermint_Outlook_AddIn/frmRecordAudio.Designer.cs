@@ -79,7 +79,7 @@
             this.lblRecordTimer.Name = "lblRecordTimer";
             this.lblRecordTimer.Size = new System.Drawing.Size(44, 16);
             this.lblRecordTimer.TabIndex = 6;
-            this.lblRecordTimer.Text = "80:00";
+            this.lblRecordTimer.Text = "00:00";
             this.lblRecordTimer.Visible = false;
             // 
             // lblStop
@@ -115,7 +115,7 @@
             // PlayButton
             // 
             this.PlayButton.Image = global::Peppermint_Outlook_AddIn.Properties.Resources.play_2x;
-            this.PlayButton.Location = new System.Drawing.Point(40, 99);
+            this.PlayButton.Location = new System.Drawing.Point(12, 99);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(25, 32);
             this.PlayButton.TabIndex = 9;
@@ -139,9 +139,9 @@
             // 
             this.ProgressBar.BackColor = System.Drawing.Color.DarkRed;
             this.ProgressBar.ForeColor = System.Drawing.Color.Black;
-            this.ProgressBar.Location = new System.Drawing.Point(74, 107);
+            this.ProgressBar.Location = new System.Drawing.Point(44, 113);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(261, 11);
+            this.ProgressBar.Size = new System.Drawing.Size(296, 4);
             this.ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ProgressBar.TabIndex = 11;
             this.ProgressBar.Value = 5;
@@ -154,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(354, 272);
+            this.ClientSize = new System.Drawing.Size(354, 248);
             this.Controls.Add(this.ProgressBar);
             this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.lblStop);

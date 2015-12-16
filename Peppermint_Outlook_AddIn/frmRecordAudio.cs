@@ -30,12 +30,16 @@ namespace Peppermint_Outlook_AddIn
         private string RECORDING_CONCLUDED = "Recording concluded";
         private string PLAYING_AUDIO = "Playing recorded message ...";
         private string PLAYBACK_CONCLUDED = "Playback concluded";
+        private string PLAYBACK_ZERO_TIME = "00:00";
 
         private bool bRecordingInProgress;
 
         private SpeechRecognitionEngine _recognizer;
 
         DirectSoundOut audioOutput;
+        WaveFileReader wfr;
+        System.Windows.Forms.Timer tmrPlayBackTimer;
+
         // WIN API
         private const int WM_DEVICECHANGE = 0x0219;
         
@@ -109,6 +113,10 @@ namespace Peppermint_Outlook_AddIn
 
             outputFolder = Path.Combine(Path.GetTempPath(), "Peppermint_Outlook_Addin");
             Directory.CreateDirectory(outputFolder);
+
+            tmrPlayBackTimer = new System.Windows.Forms.Timer();
+            tmrPlayBackTimer.Tick += tmrPlayBackTimer_Tick;
+            tmrPlayBackTimer.Interval = 500;
         }
 
         private void StartRecording()
@@ -201,6 +209,7 @@ namespace Peppermint_Outlook_AddIn
             }
             bRecordingInProgress = false;
             lblRecordTimer.Visible = false;
+            lblRecordTimer.Text = PLAYBACK_ZERO_TIME;
         }
 
         private void FinalizeWaveFile()
@@ -212,6 +221,7 @@ namespace Peppermint_Outlook_AddIn
             }
             bRecordingInProgress = false;
             lblRecordTimer.Visible = false;
+            lblRecordTimer.Text = PLAYBACK_ZERO_TIME;
         }
 
         void waveIn_DataAvailable(object sender, WaveInEventArgs e)
@@ -283,8 +293,8 @@ namespace Peppermint_Outlook_AddIn
         {
             lblStop.Visible = false;
             PlayButton.Visible = true;
-            //ProgressBar.Visible = true;
-            PauseButton.Visible = true;
+            PauseButton.Visible = false;
+            lblRecordTimer.Text = PLAYBACK_ZERO_TIME;
 
             // Stop the recording, but do not attach the file, yet
             if (waveIn != null)
@@ -304,12 +314,14 @@ namespace Peppermint_Outlook_AddIn
         {
             txtMessage.Text = PLAYING_AUDIO;
             lblStop.Visible = false;
-            PlayButton.Enabled = false;
-            PauseButton.Enabled = true;
+            PlayButton.Visible = false;
+            PauseButton.Visible = true;
             ProgressBar.Visible = true;
+            lblRecordTimer.Visible = true;
+
+            tmrPlayBackTimer.Start();
 
             string strFileToPlay = outputFolder + "\\" + outputFilename;
-
             
             if (audioOutput != null ) // Playback is already in progress i.e. re-play after playback has been paused
             {
@@ -320,8 +332,8 @@ namespace Peppermint_Outlook_AddIn
             // If the recorded file is present then play the attachment
             if (File.Exists(strFileToPlay))
             {
-                var soundFile = strFileToPlay;
-                var wfr = new WaveFileReader(soundFile);
+                String soundFile = strFileToPlay;
+                wfr = new WaveFileReader(soundFile);
                 WaveChannel32 wc = new WaveChannel32(wfr) { PadWithZeroes = false };
                 audioOutput = new DirectSoundOut();
                 {
@@ -338,15 +350,26 @@ namespace Peppermint_Outlook_AddIn
             
         }
 
+        void tmrPlayBackTimer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan ts = wfr.CurrentTime;
+
+            lblRecordTimer.Text = string.Format("{0:D2}:{1:D2}", ts.Minutes, ts.Seconds);
+        }
+
         void audioOutput_PlaybackStopped(object sender, StoppedEventArgs e)
         {
             audioOutput.Dispose();
             audioOutput = null;
             
-            PlayButton.Enabled = true;
-            PauseButton.Enabled = false;
+            PlayButton.Visible = true;
+            PauseButton.Visible = false;
             txtMessage.Text = PLAYBACK_CONCLUDED;
             ProgressBar.Visible = false;
+            tmrPlayBackTimer.Stop();
+            lblRecordTimer.Visible = false;
+            lblRecordTimer.Text = PLAYBACK_ZERO_TIME;
+            
         }
 
         private void PauseButton_Click(object sender, EventArgs e)
@@ -354,8 +377,9 @@ namespace Peppermint_Outlook_AddIn
             if (audioOutput != null)
             { 
                 audioOutput.Pause();
-                PlayButton.Enabled = true;
-                PauseButton.Enabled = false;
+                PlayButton.Visible = true;
+                PauseButton.Visible = false;
+                tmrPlayBackTimer.Stop();
             }
         }
     }
