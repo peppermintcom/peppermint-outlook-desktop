@@ -29,6 +29,7 @@ namespace Peppermint_Outlook_AddIn
         private const int MAX_RECORDING_TIME = 10 * 60; // max audio recording time seconds = 10 mins
         private string RECORDING_CONCLUDED = "Recording concluded";
         private string PLAYING_AUDIO = "Playing recorded message ...";
+        private string PLAYBACK_CONCLUDED = "Playback concluded";
 
         private bool bRecordingInProgress;
 
@@ -303,7 +304,9 @@ namespace Peppermint_Outlook_AddIn
         {
             txtMessage.Text = PLAYING_AUDIO;
             lblStop.Visible = false;
-            //this.Enabled = false;
+            PlayButton.Enabled = false;
+            PauseButton.Enabled = true;
+            ProgressBar.Visible = true;
 
             string strFileToPlay = outputFolder + "\\" + outputFilename;
 
@@ -332,19 +335,28 @@ namespace Peppermint_Outlook_AddIn
             {
                 MessageBox.Show("Could not find the recorded file\n\nPlease try recording again", "Audio file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            this.Enabled = true;
+            
         }
 
         void audioOutput_PlaybackStopped(object sender, StoppedEventArgs e)
         {
             audioOutput.Dispose();
             audioOutput = null;
+            
+            PlayButton.Enabled = true;
+            PauseButton.Enabled = false;
+            txtMessage.Text = PLAYBACK_CONCLUDED;
+            ProgressBar.Visible = false;
         }
 
         private void PauseButton_Click(object sender, EventArgs e)
         {
             if (audioOutput != null)
+            { 
                 audioOutput.Pause();
+                PlayButton.Enabled = true;
+                PauseButton.Enabled = false;
+            }
         }
     }
 }
