@@ -312,6 +312,9 @@ namespace Peppermint_Outlook_AddIn
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
+            //  https://code.msdn.microsoft.com/windowsdesktop/Custom-Colored-ProgressBar-a68b61de
+            // http://stackoverflow.com/questions/778678/how-to-change-the-color-of-progressbar-in-c-sharp-net-3-5
+            
             txtMessage.Text = PLAYING_AUDIO;
             lblStop.Visible = false;
             PlayButton.Visible = false;
@@ -353,7 +356,8 @@ namespace Peppermint_Outlook_AddIn
         void tmrPlayBackTimer_Tick(object sender, EventArgs e)
         {
             TimeSpan ts = wfr.CurrentTime;
-
+            ProgressBar.Maximum = (int)wfr.TotalTime.TotalSeconds;
+            ProgressBar.Value = (int)wfr.CurrentTime.TotalSeconds;
             lblRecordTimer.Text = string.Format("{0:D2}:{1:D2}", ts.Minutes, ts.Seconds);
         }
 
@@ -366,6 +370,7 @@ namespace Peppermint_Outlook_AddIn
             PauseButton.Visible = false;
             txtMessage.Text = PLAYBACK_CONCLUDED;
             ProgressBar.Visible = false;
+            ProgressBar.Value = 0;
             tmrPlayBackTimer.Stop();
             lblRecordTimer.Visible = false;
             lblRecordTimer.Text = PLAYBACK_ZERO_TIME;
