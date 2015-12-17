@@ -263,6 +263,12 @@ namespace Peppermint_Outlook_AddIn
 
                     FinalizeWaveFile();
                 }
+                if (audioOutput != null)
+                {
+                    audioOutput.Pause();
+                    audioOutput.Dispose();
+                    audioOutput = null;
+                }
             }
             if (btnAttachAudio.Text == "Record")
             {
@@ -363,9 +369,13 @@ namespace Peppermint_Outlook_AddIn
 
         void audioOutput_PlaybackStopped(object sender, StoppedEventArgs e)
         {
-            audioOutput.Dispose();
-            audioOutput = null;
-            
+
+            if (audioOutput != null)
+            {
+                audioOutput.Dispose();
+                audioOutput = null;
+            }
+
             PlayButton.Visible = true;
             PauseButton.Visible = false;
             txtMessage.Text = PLAYBACK_CONCLUDED;
