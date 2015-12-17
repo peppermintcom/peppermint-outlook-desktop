@@ -36,7 +36,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlayButton = new System.Windows.Forms.PictureBox();
             this.PauseButton = new System.Windows.Forms.PictureBox();
-            this.ProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ProgressBar = new Peppermint_Outlook_AddIn.ProgressBarEx();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PauseButton)).BeginInit();
@@ -139,7 +139,7 @@
             // 
             this.ProgressBar.Location = new System.Drawing.Point(44, 113);
             this.ProgressBar.Name = "ProgressBar";
-            this.ProgressBar.Size = new System.Drawing.Size(296, 4);
+            this.ProgressBar.Size = new System.Drawing.Size(296, 8);
             this.ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ProgressBar.TabIndex = 11;
             this.ProgressBar.Value = 5;
@@ -170,6 +170,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Peppermint Audio Recording";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRecordAudio_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRecordAudio_FormClosed);
             this.Load += new System.EventHandler(this.frmRecordAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlayButton)).EndInit();
@@ -189,6 +190,6 @@
         private System.Windows.Forms.Label lblStop;
         private System.Windows.Forms.PictureBox PlayButton;
         private System.Windows.Forms.PictureBox PauseButton;
-        private System.Windows.Forms.ProgressBar ProgressBar;
+        private ProgressBarEx ProgressBar;
     }
 }

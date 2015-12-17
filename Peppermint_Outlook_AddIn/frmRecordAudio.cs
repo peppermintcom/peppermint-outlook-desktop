@@ -14,6 +14,7 @@ using NAudio.Wave;
 using System.Threading;
 
 using System.Speech.Recognition;
+using System.Drawing.Drawing2D;
 
 namespace Peppermint_Outlook_AddIn
 {
@@ -117,6 +118,9 @@ namespace Peppermint_Outlook_AddIn
             tmrPlayBackTimer = new System.Windows.Forms.Timer();
             tmrPlayBackTimer.Tick += tmrPlayBackTimer_Tick;
             tmrPlayBackTimer.Interval = 500;
+
+            ProgressBar.ForeColor = Color.FromArgb(0x2b, 0xb0, 0x9f);
+            ProgressBar.BackColor = Color.FromArgb(0xd6, 0xe1, 0xdd);
         }
 
         private void StartRecording()
@@ -396,6 +400,38 @@ namespace Peppermint_Outlook_AddIn
                 PauseButton.Visible = false;
                 tmrPlayBackTimer.Stop();
             }
+        }
+
+        private void frmRecordAudio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (audioOutput != null)
+            {
+                audioOutput.Pause();
+                audioOutput.Dispose();
+                audioOutput = null;
+            }
+        }
+    }
+
+    public class ProgressBarEx : ProgressBar
+    {
+        public ProgressBarEx()
+        {
+            this.SetStyle(ControlStyles.UserPaint, true);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            LinearGradientBrush brush = null;
+            Rectangle rec = new Rectangle(0, 0, this.Width, this.Height);
+            double scaleFactor = (((double)Value - (double)Minimum) / ((double)Maximum - (double)Minimum));
+
+            if (ProgressBarRenderer.IsSupported)
+                ProgressBarRenderer.DrawHorizontalBar(e.Graphics, rec);
+
+            rec.Width = (int)((rec.Width * scaleFactor) - 4);
+            brush = new LinearGradientBrush(rec, this.ForeColor, this.BackColor, LinearGradientMode.Vertical);
+            e.Graphics.FillRectangle(brush, 2, 2, rec.Width, rec.Height);
         }
     }
 }
