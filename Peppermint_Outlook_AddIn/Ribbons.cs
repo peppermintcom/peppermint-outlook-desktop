@@ -144,7 +144,7 @@ namespace Peppermint_Outlook_AddIn
         {
             Outlook.MailItem mi = ThisAddIn.outlookApp.CreateItem(Outlook.OlItemType.olMailItem);
 
-            mi.Subject = "Feedback : Peppermint Outlook AddIn";
+            mi.Subject = "Feedback : Peppermint Outlook Add-in";
             mi.Recipients.Add(ThisAddIn.PEPPERMINT_SUPPORT_EMAIL);
 
             string strOSBitness = string.Empty;
@@ -172,7 +172,7 @@ namespace Peppermint_Outlook_AddIn
 
             mi.Body += "\r\n\r\n\r\n" + "O.S. version : " + ThisAddIn.GetOSFriendlyName() + "\t" + strOSBitness +
                                     "\r\nOutlook version : " + ThisAddIn.outlookApp.Version + "\t" + strOfficeBitness +
-                                     "\r\nPeppermint AddIn version : " + AddinVersion;
+                                     "\r\nPeppermint Add-in version : " + AddinVersion;
 
             mi.Display();
         }
