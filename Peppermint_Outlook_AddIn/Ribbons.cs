@@ -67,8 +67,15 @@ namespace Peppermint_Outlook_AddIn
 
         public void btnRecordMessageNewMail_Click(Office.IRibbonControl control)
         {
-            ThisAddIn.theCurrentMailItem.Save();
-            ThisAddIn.RecordAudioAndAttach("Create");
+            Outlook.Inspector insp = control.Context;
+            Outlook.MailItem mi = insp.CurrentItem;
+
+            if (mi != null)
+            {
+                ThisAddIn.theCurrentMailItem = mi;
+                ThisAddIn.theCurrentMailItem.Save();
+                ThisAddIn.RecordAudioAndAttach("Create");
+            }
         }
 
         public void btnSendViaPeppermint_Click(Office.IRibbonControl control)
