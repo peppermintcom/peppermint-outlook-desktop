@@ -28,6 +28,7 @@ namespace Peppermint_Outlook_AddIn
         public static string PEPPERMINT_NEW_MAIL_SUBJECT = "I sent you a voicemail message";
         public static string PEPPERMINT_TRANSCRIBED_TEXT_HEADER = "<BR><BR> -- Automatic Transcription Below -- <BR><BR>";
         public static string PEPPERMINT_TRANSCRIBED_AUDIO;
+        public static string PEPPERMINT_QUICK_REPLY_LINK = "Peppermint Quick Reply";
 
         public static bool bPeppermintMessageInserted;
 
@@ -57,9 +58,20 @@ namespace Peppermint_Outlook_AddIn
             if (!(item is Outlook.MailItem)) return;
 
             theCurrentMailItem = Inspector.CurrentItem as Outlook.MailItem;
+            theCurrentMailItem.Open += theCurrentMailItem_Open;
 
             ThisAddIn.bPeppermintMessageInserted = false;
 
+        }
+
+        void theCurrentMailItem_Open(ref bool Cancel)
+        {
+            //MessageBox.Show(theCurrentMailItem.Body);
+
+            if (theCurrentMailItem.Body.Contains(PEPPERMINT_QUICK_REPLY_LINK))
+            {
+                theCurrentMailItem.Body = theCurrentMailItem.Body.ToString().Replace(PEPPERMINT_QUICK_REPLY_LINK, "");
+            }
         }
 
         public static DialogResult RecordAudioAndAttach(string RibbonName)
