@@ -39,6 +39,8 @@ namespace Peppermint_Outlook_AddIn
             // VSTO Runtime Update to Address Slow Shutdown and “Unknown Publisher” for SHA256 Certificate
             // http://softwareblog.morlok.net/2014/12/03/unknown-publisher-when-installing-clickonce-vsto-outlook-plugin-signed-with-sha256-certificate/
             // http://blogs.msdn.com/b/vsto/archive/2014/04/10/vsto-runtime-update-to-address-slow-shutdown-and-unknown-publisher-for-sha256-certificates.aspx
+            // http://stackoverflow.com/questions/11540520/how-to-get-installshield-le-to-uninstall-the-existing-installation-automatically
+            // http://stackoverflow.com/questions/6447404/configuring-installshield-le-to-remove-previous-versions-built-using-visual-stud
 
             outlookApp = Application;
 
