@@ -280,7 +280,7 @@ namespace Peppermint_Outlook_AddIn
                 btnAttachAudio.Text = "Attach";
                 this.DialogResult = DialogResult.None;
                 StartRecording();
-                lblStop.Visible = true;
+                //lblStop.Visible = true;
             }
         }
 
