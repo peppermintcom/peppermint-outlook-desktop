@@ -27,7 +27,7 @@ namespace Peppermint_Outlook_AddIn
         private string RECORDING = "Recording your message ...";
         private string MIC_ERROR = "Your microphone is not working. Please check your audio settings and try again.";
         private string MIC_INSERTED = "Ok The problem seems to be fixed, click on Record when ready";
-        private const int MAX_RECORDING_TIME = 10 * 60; // max audio recording time seconds = 10 mins
+        private const int MAX_RECORDING_TIME = 5 * 60; // max audio recording time seconds = 10 mins
         private string RECORDING_CONCLUDED = "Recording concluded";
         private string PLAYING_AUDIO = "Playing recorded message ...";
         private string PLAYBACK_CONCLUDED = "Playback concluded";
