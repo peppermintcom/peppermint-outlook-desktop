@@ -4662,7 +4662,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
-		<row><td>{CE40CFA1-1843-4E43-A730-8EDD77CAD3C9}</td><td>1.20.0000</td><td>1.50.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>UpgradeEntry</td></row>
+		<row><td>{CE40CFA1-1843-4E43-A730-8EDD77CAD3C7}</td><td>1.20.0000</td><td>1.50.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP1</td><td>UpgradeEntry</td></row>
 	</table>
 
 	<table name="Verb">
