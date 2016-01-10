@@ -32,6 +32,7 @@ namespace Peppermint_Outlook_AddIn
         public static string PEPPERMINT_QUICK_REPLY_LINK = "peppermint.com/reply?";
 
         public static bool bPeppermintMessageInserted;
+        private Outlook.Explorer explorer;
 
         #endregion
 
@@ -47,6 +48,14 @@ namespace Peppermint_Outlook_AddIn
 
             _inspectors = Application.Inspectors;
             _inspectors.NewInspector += _inspectors_NewInspector;
+
+            explorer = Application.ActiveExplorer();
+            explorer.SelectionChange += explorer_SelectionChange;
+        }
+
+        void explorer_SelectionChange()
+        {
+
         }
 
         void _inspectors_NewInspector(Outlook.Inspector Inspector)
@@ -70,18 +79,24 @@ namespace Peppermint_Outlook_AddIn
 
         void theCurrentMailItem_Open(ref bool Cancel)
         {
-            if (theCurrentMailItem.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_TEXT))
-            {
-                theCurrentMailItem.HTMLBody = theCurrentMailItem.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_TEXT, "");
-            }
-
-            if (theCurrentMailItem.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_LINK))
-            {
-                theCurrentMailItem.HTMLBody = theCurrentMailItem.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_LINK, "");
-            }
-
-            theCurrentMailItem.Save();
+            RemovePeppermintQuickReply(theCurrentMailItem);
         }
+
+        private void RemovePeppermintQuickReply(Outlook.MailItem mi)
+        {
+            if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_TEXT))
+            {
+                mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_TEXT, "");
+            }
+
+            if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_LINK))
+            {
+                mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_LINK, "");
+            }
+
+            mi.Save();
+        }
+
 
         public static DialogResult RecordAudioAndAttach(string RibbonName)
         {
