@@ -59,7 +59,8 @@ namespace Peppermint_Outlook_AddIn
                 if (ThisAddIn.outlookApp.ActiveExplorer().Selection[1] is Outlook.MailItem)
                 { 
                     Outlook.MailItem mi = ThisAddIn.outlookApp.ActiveExplorer().Selection[1] as Outlook.MailItem;
-                    RemovePeppermintQuickReply(mi);
+                    if(mi != null)
+                        RemovePeppermintQuickReply(mi);
                 }
         }
 
@@ -84,7 +85,8 @@ namespace Peppermint_Outlook_AddIn
 
         void theCurrentMailItem_Open(ref bool Cancel)
         {
-            RemovePeppermintQuickReply(theCurrentMailItem);
+            if (theCurrentMailItem != null)
+                RemovePeppermintQuickReply(theCurrentMailItem);
         }
 
         private void RemovePeppermintQuickReply(Outlook.MailItem mi)
