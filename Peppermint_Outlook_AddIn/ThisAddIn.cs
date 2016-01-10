@@ -55,7 +55,12 @@ namespace Peppermint_Outlook_AddIn
 
         void explorer_SelectionChange()
         {
-
+             if (ThisAddIn.outlookApp.ActiveExplorer().Selection.Count == 1)
+                if (ThisAddIn.outlookApp.ActiveExplorer().Selection[1] is Outlook.MailItem)
+                { 
+                    Outlook.MailItem mi = ThisAddIn.outlookApp.ActiveExplorer().Selection[1] as Outlook.MailItem;
+                    RemovePeppermintQuickReply(mi);
+                }
         }
 
         void _inspectors_NewInspector(Outlook.Inspector Inspector)
