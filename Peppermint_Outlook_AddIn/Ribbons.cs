@@ -139,7 +139,7 @@ namespace Peppermint_Outlook_AddIn
                                                             ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO +
                                                             ThisAddIn.theCurrentMailItem.HTMLBody;
                 }
-                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
             }
         }
         public Bitmap btnRecordMessage_getImage(Office.IRibbonControl control)

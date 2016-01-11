@@ -30,6 +30,7 @@ namespace Peppermint_Outlook_AddIn
         public static string PEPPERMINT_TRANSCRIBED_AUDIO;
         public static string PEPPERMINT_QUICK_REPLY_TEXT = "Peppermint Quick Reply";
         public static string PEPPERMINT_QUICK_REPLY_LINK = "peppermint.com/reply?";
+        public static string PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = "<table class=\"six columns\" style=\"width: 240px;\"><tr><td style=\"color: #222222; font-family: Helvetica, Arial, sans-serif; font-weight: normal; text-align: left; line-height: 19px; font-size: 14px; margin: 0; padding: 0;\" align=\"left\"><table class=\"button radius\" style=\"width: 100%; overflow: hidden;\"><tr><td style=\"color: #ffffff; font-family: Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; line-height: 17px; font-size: 14px; display: block; width: auto !important; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background: #3abca4; margin: 0; padding: 8px 2px 8px 6px; border: 1px solid #3abca4;\" align=\"center\" bgcolor=\"#3abca4\"><a href=\"@@\" style=\"color: #ffffff; padding: 0 4px 0 4px; text-decoration: none; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 14px;\"><img style=\"padding:0 0 0 0\" border=\"0\" align=\"left\" src=\"https://s3-us-west-2.amazonaws.com/dev.peppermint.com/img/btn-email.png\">Peppermint Quick Reply</a></td></tr></table></td></tr></table>";
 
         public static bool bPeppermintMessageInserted;
         private Outlook.Explorer explorer;
@@ -60,7 +61,8 @@ namespace Peppermint_Outlook_AddIn
                 { 
                     Outlook.MailItem mi = ThisAddIn.outlookApp.ActiveExplorer().Selection[1] as Outlook.MailItem;
                     if(mi != null)
-                        RemovePeppermintQuickReply(mi);
+                        if(mi.Sent == true)
+                            RemovePeppermintQuickReply(mi);
                 }
         }
 
@@ -86,7 +88,8 @@ namespace Peppermint_Outlook_AddIn
         void theCurrentMailItem_Open(ref bool Cancel)
         {
             if (theCurrentMailItem != null)
-                RemovePeppermintQuickReply(theCurrentMailItem);
+                if(theCurrentMailItem.Sent == true)
+                    RemovePeppermintQuickReply(theCurrentMailItem);
         }
 
         private void RemovePeppermintQuickReply(Outlook.MailItem mi)
@@ -94,16 +97,15 @@ namespace Peppermint_Outlook_AddIn
             if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_TEXT))
             {
                 mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_TEXT, "");
+                mi.Save();
             }
 
             if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_LINK))
             {
                 mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_LINK, "");
+                mi.Save();
             }
-
-            mi.Save();
         }
-
 
         public static DialogResult RecordAudioAndAttach(string RibbonName)
         {
@@ -141,12 +143,12 @@ namespace Peppermint_Outlook_AddIn
                             ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
                             if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Create"))
                             {
-                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
                                 bPeppermintMessageInserted = true;
                             }
                             if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Read"))
                             {
-                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
                                 bPeppermintMessageInserted = true;
                             }
                         }
