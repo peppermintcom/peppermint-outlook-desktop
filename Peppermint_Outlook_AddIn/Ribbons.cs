@@ -9,6 +9,7 @@ using Office = Microsoft.Office.Core;
 using System.Drawing;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using System.Windows.Forms;
+using System.Web;
 
 
 // TODO:  Follow these steps to enable the Ribbon (XML) item:
@@ -122,8 +123,6 @@ namespace Peppermint_Outlook_AddIn
                 // Create a new email only of the audio is to be attached/sent
                 ThisAddIn.theCurrentMailItem = ThisAddIn.outlookApp.CreateItem(Outlook.OlItemType.olMailItem);
 
-                ThisAddIn.theCurrentMailItem.Display();
-
                 ThisAddIn.theCurrentMailItem.Subject = "I sent you a voicemail message";
 
                 ThisAddIn.theCurrentMailItem.BodyFormat = Outlook.OlBodyFormat.olFormatHTML;
@@ -139,7 +138,17 @@ namespace Peppermint_Outlook_AddIn
                                                             ThisAddIn.PEPPERMINT_TRANSCRIBED_AUDIO +
                                                             ThisAddIn.theCurrentMailItem.HTMLBody;
                 }
+
+                Outlook.Accounts accts = ThisAddIn.outlookApp.GetNamespace("MAPI").Accounts;
+                string name = accts[1].DisplayName;
+                string email = accts[1].SmtpAddress;
+
+                String tempPeppermint_quick_reply = "https://" + ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK + "name=" + HttpUtility.UrlEncode(name) + "&mail=" + HttpUtility.UrlEncode(email);
+                ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT.Replace("@@", tempPeppermint_quick_reply);
+
                 ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
+
+                ThisAddIn.theCurrentMailItem.Display();
             }
         }
         public Bitmap btnRecordMessage_getImage(Office.IRibbonControl control)

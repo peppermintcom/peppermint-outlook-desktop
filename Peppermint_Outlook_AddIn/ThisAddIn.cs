@@ -8,6 +8,7 @@ using Office = Microsoft.Office.Core;
 using System.Windows.Forms;
 using System.IO;
 using System.Management;
+using System.Web;
 
 
 namespace Peppermint_Outlook_AddIn
@@ -137,6 +138,13 @@ namespace Peppermint_Outlook_AddIn
 
                     if (ThisAddIn.theCurrentMailItem.Body != null)
                     {
+                        Outlook.Account oa = ThisAddIn.theCurrentMailItem.SendUsingAccount;
+                        string name = oa.DisplayName;
+                        string email = oa.SmtpAddress;
+
+                        String tempPeppermint_quick_reply = "https://" + PEPPERMINT_QUICK_REPLY_LINK + "name=" + HttpUtility.UrlEncode(name) + "&mail=" + HttpUtility.UrlEncode(email);
+                        PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT.Replace("@@", tempPeppermint_quick_reply);
+
                         // if the text "Peppermint.com" is in the body of the message don't update the body
                         if (!ThisAddIn.theCurrentMailItem.HTMLBody.ToString().Contains(PEPPERMINT_WEBSITE))
                         { 
