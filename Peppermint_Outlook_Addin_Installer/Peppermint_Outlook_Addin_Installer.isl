@@ -4374,7 +4374,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKAPPPOOLS</td><td>##IDS_PROGMSG_IIS_ROLLBACKAPPPOOLS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
-		<row><td>ProductCode</td><td>{A8F0DF96-7F44-4AC6-86C6-62F9E902E213}</td><td/></row>
+		<row><td>ProductCode</td><td>{85BB049F-525A-4B98-907A-E37EB530039B}</td><td/></row>
 		<row><td>ProductName</td><td>Peppermint Outlook Add-in</td><td/></row>
 		<row><td>ProductVersion</td><td>1.70.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
