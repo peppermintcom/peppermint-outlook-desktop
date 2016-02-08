@@ -109,10 +109,8 @@ namespace Peppermint_Outlook_AddIn
                 string target = link.Attributes["href"].Value;
                 if (target.Contains(PEPPERMINT_QUICK_REPLY_LINK))
                 {
-                    while (link.ChildNodes.Count > 0)
-                        link.ChildNodes.Remove(0);
+                    link.ParentNode.Remove();// Remove the button and it's URL, text, image etc.
                 }
-            
             }
 
             mi.HTMLBody = document.DocumentNode.OuterHtml;
