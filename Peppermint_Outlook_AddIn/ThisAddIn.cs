@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Management;
 using System.Web;
+using HtmlAgilityPack;
 
 
 namespace Peppermint_Outlook_AddIn
@@ -95,16 +96,39 @@ namespace Peppermint_Outlook_AddIn
 
         private void RemovePeppermintQuickReply(Outlook.MailItem mi)
         {
+            HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+            string htmlString = mi.HTMLBody;
+            document.LoadHtml(htmlString);
+            HtmlNodeCollection collection = document.DocumentNode.SelectNodes("//a");
+
+            if (collection == null)
+                return;
+
+            foreach (HtmlNode link in collection)
+            {
+                string target = link.Attributes["href"].Value;
+                if (target.Contains(PEPPERMINT_QUICK_REPLY_LINK))
+                {
+                    while (link.ChildNodes.Count > 0)
+                        link.ChildNodes.Remove(0);
+                }
+
+            }
+
+            mi.HTMLBody = document.DocumentNode.OuterHtml;
+            //mi.Save();
+
+            return;
             if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_TEXT))
             {
                 mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_TEXT, "");
-                mi.Save();
+                //mi.Save();
             }
 
             if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_LINK))
             {
                 mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_LINK, "");
-                mi.Save();
+                //mi.Save();
             }
         }
 
