@@ -112,24 +112,10 @@ namespace Peppermint_Outlook_AddIn
                     while (link.ChildNodes.Count > 0)
                         link.ChildNodes.Remove(0);
                 }
-
+            
             }
 
             mi.HTMLBody = document.DocumentNode.OuterHtml;
-            //mi.Save();
-
-            return;
-            if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_TEXT))
-            {
-                mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_TEXT, "");
-                //mi.Save();
-            }
-
-            if (mi.HTMLBody.Contains(PEPPERMINT_QUICK_REPLY_LINK))
-            {
-                mi.HTMLBody = mi.HTMLBody.ToString().Replace(PEPPERMINT_QUICK_REPLY_LINK, "");
-                //mi.Save();
-            }
         }
 
         public static DialogResult RecordAudioAndAttach(string RibbonName)
