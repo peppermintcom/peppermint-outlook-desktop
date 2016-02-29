@@ -144,10 +144,9 @@ namespace Peppermint_Outlook_AddIn
                 string email = accts[1].SmtpAddress;
 
                 String tempPeppermint_quick_reply = "https://" + ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK + "name=" + HttpUtility.UrlEncode(name) + "&mail=" + HttpUtility.UrlEncode(email);
-                //ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT.Replace("@@", tempPeppermint_quick_reply);
+                ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT.Replace("@@", tempPeppermint_quick_reply);
 
-                //ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
-                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody;
+                ThisAddIn.theCurrentMailItem.HTMLBody = ThisAddIn.PEPPERMINT_NEW_EMAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + ThisAddIn.PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
 
                 ThisAddIn.theCurrentMailItem.Display();
             }
