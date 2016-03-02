@@ -32,7 +32,8 @@ namespace Peppermint_Outlook_AddIn
         public static string PEPPERMINT_TRANSCRIBED_AUDIO;
         public static string PEPPERMINT_QUICK_REPLY_TEXT = "Peppermint Quick Reply";
         public static string PEPPERMINT_QUICK_REPLY_LINK = "peppermint.com/reply?";
-        public static string PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = "<table class=\"button radius\" style=\"width: 240px; overflow: hidden;\"><tbody><tr><td style=\"text-align: center; line-height: 17px; font-size: 14px; display: block; width: auto !important; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background: #3abca4; margin: 0; padding: 8px 2px 8px 6px; border: 1px solid #3abca4;\" align=\"center\" bgcolor=\"#3abca4\"><a href=\"@@\" style=\"color: #ffffff; padding: 0 4px 0 4px; text-decoration: none; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 14px;\"><img style=\"padding:0 0 0 0\" src=\"https://s3-us-west-2.amazonaws.com/dev.peppermint.com/img/btn-email.png\" align=\"left\" border=\"0\">Peppermint&nbsp;Quick&nbsp;Reply</a></td></tr></tbody></table>";
+        public static string PEPPERMINT_QUICK_REPLY_LINK_LOCAL_IMAGE_PATH = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase) + "\\btn-email.png"; 
+        public static string PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = "<table class=\"button radius\" style=\"width: 240px; overflow: hidden;\"><tbody><tr><td style=\"text-align: center; line-height: 17px; font-size: 14px; display: block; width: auto !important; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background: #3abca4; margin: 0; padding: 8px 2px 8px 6px; border: 1px solid #3abca4;\" align=\"center\" bgcolor=\"#3abca4\"><a href=\"@@\" style=\"color: #ffffff; padding: 0 4px 0 4px; text-decoration: none; font-weight: bold; font-family: Helvetica, Arial, sans-serif; font-size: 14px;\"><img style=\"padding:0 0 0 0\" src=\"@ImageSource@\" align=\"left\" border=\"0\">Peppermint&nbsp;Quick&nbsp;Reply</a></td></tr></tbody></table>";
         
         public static bool bPeppermintMessageInserted;
         private Outlook.Explorer explorer;
@@ -152,6 +153,7 @@ namespace Peppermint_Outlook_AddIn
 
                         String tempPeppermint_quick_reply = "https://" + PEPPERMINT_QUICK_REPLY_LINK + "name=" + HttpUtility.UrlEncode(name) + "&mail=" + HttpUtility.UrlEncode(email);
                         PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT.Replace("@@", tempPeppermint_quick_reply);
+                        PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT = PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT.Replace("@ImageSource@", PEPPERMINT_QUICK_REPLY_LINK_LOCAL_IMAGE_PATH);
 
                         // if the text "Peppermint.com" is in the body of the message don't update the body
                         if (!ThisAddIn.theCurrentMailItem.HTMLBody.ToString().Contains(PEPPERMINT_WEBSITE))
@@ -164,7 +166,7 @@ namespace Peppermint_Outlook_AddIn
                             }
                             if ((!String.IsNullOrEmpty(ThisAddIn.theCurrentMailItem.Body.ToString())) && (RibbonName == "Read"))
                             {
-                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + ThisAddIn.theCurrentMailItem.HTMLBody + PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT;
+                                ThisAddIn.theCurrentMailItem.HTMLBody = PEPPERMINT_REPLY_MAIL_HTML_BODY + PEPPERMINT_QUICK_REPLY_LINK_TO_INSERT + ThisAddIn.theCurrentMailItem.HTMLBody;
                                 bPeppermintMessageInserted = true;
                             }
                         }
