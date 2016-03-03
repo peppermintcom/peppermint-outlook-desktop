@@ -10,6 +10,7 @@ using System.IO;
 using System.Management;
 using System.Web;
 using HtmlAgilityPack;
+using System.Reflection;
 
 
 namespace Peppermint_Outlook_AddIn

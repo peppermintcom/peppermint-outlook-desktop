@@ -344,6 +344,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{4354AD94-8B22-41E6-9774-8EE0C60C7264}</td><td>OUTLOOKADDIN</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{F1ECE0D5-ED7B-4879-9921-4FF449627690}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{B7190BBA-879C-4B46-90E9-448DA05E3A4F}</td><td>DATABASEDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Peppermint_Outlook_AddIn.Content_Files</td><td>{22EF16FB-87C5-4C87-A79F-5E0BDB74880C}</td><td>OUTLOOKADDIN</td><td>2</td><td/><td>peppermint_outlook_addin.con</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Peppermint_Outlook_AddIn.Primary_output</td><td>{A2D62934-FEF3-4FE7-8498-8D30B508AB47}</td><td>OUTLOOKADDIN</td><td>2</td><td/><td>peppermint_outlook_addin.pri</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1870,6 +1871,7 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>AlwaysInstall</td><td>Peppermint_Outlook_AddIn.Content_Files</td></row>
 		<row><td>AlwaysInstall</td><td>Peppermint_Outlook_AddIn.Primary_output</td></row>
 	</table>
 
@@ -1885,6 +1887,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
+		<row><td>peppermint_outlook_addin.con</td><td>Peppermint_Outlook_AddIn.Content_Files</td><td>Peppermint_Outlook_AddIn.Content Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Peppermint_Outlook_AddIn&gt;|ContentFiles</td><td>3</td><td/></row>
 		<row><td>peppermint_outlook_addin.dll</td><td>ISX_DEFAULTCOMPONENT2</td><td>PEPPER~1.MAN|Peppermint_Outlook_AddIn.dll.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>E:\oDesk\38_Robert_Rawson\source\github\peppermint-outlook-desktop\Peppermint_Outlook_AddIn\bin\Release\Peppermint_Outlook_AddIn.dll.manifest</td><td>1</td><td/></row>
 		<row><td>peppermint_outlook_addin.pri</td><td>Peppermint_Outlook_AddIn.Primary_output</td><td>Peppermint_Outlook_AddIn.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Peppermint_Outlook_AddIn&gt;|Built</td><td>3</td><td/></row>
 		<row><td>peppermint_outlook_addin.vst</td><td>ISX_DEFAULTCOMPONENT2</td><td>PEPPER~1.VST|Peppermint_Outlook_AddIn.vsto</td><td>0</td><td/><td/><td/><td>1</td><td>E:\oDesk\38_Robert_Rawson\source\github\peppermint-outlook-desktop\Peppermint_Outlook_AddIn\bin\Release\Peppermint_Outlook_AddIn.vsto</td><td>1</td><td/></row>
@@ -2035,6 +2038,7 @@
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_846D9F3F_E641_4493_B0F9_3BFDD2039B10_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_0F42A1F8_BCC7_4377_8B5F_54ACBF423553_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_11741E34_FE2D_4D81_B20A_5A35FE2717AC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Peppermint_Outlook_AddIn.Content_Files</td><td/><td/><td>_9923987C_240C_4CA7_AB8F_3BA51FDE4DA2_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Peppermint_Outlook_AddIn.Primary_output</td><td/><td/><td>_A742A0C4_EAEC_4966_8966_DF16689843D4_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
